@@ -18,3 +18,5 @@ class TestStudentCode < MiniTest::Unit::TestCase
     stdout_from { load "student_code.rb" }.must_equal("hello\n")
   end
 end
+
+puts `git pull --rebase`
