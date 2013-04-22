@@ -1,7 +1,7 @@
-puts "Enter a word:"
-word = readline.chomp
-
-puts "Enter a number:"
-num = readline.chomp.to_i
-
-puts word * num
+while true 
+  word = readline.chomp
+  puts word
+  if word == ""
+    break
+  end
+end
