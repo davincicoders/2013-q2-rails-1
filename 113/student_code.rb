@@ -1,2 +1,1 @@
-# say hello
 puts "hello"
