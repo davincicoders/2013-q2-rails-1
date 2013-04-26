@@ -48,4 +48,9 @@ class Test163 < MiniTest::Unit::TestCase
       stdout_from { load "163.rb" }.must_equal("#{PROMPT}\n")
     end
   end
+  def test_big_green_frog
+    with_stdin("big green frog\n") do
+      stdout_from { load "163.rb" }.must_equal("#{PROMPT}frog green big\n")
+    end
+  end
 end
