@@ -5,7 +5,11 @@ entered_username = readline.chomp
 puts "Enter password:"
 entered_password = readline.chomp
 
-# TODO: print out one of the following messages:
-#   Correct password.
-#   Incorrect password.
-#   Unknown username.
+user = G189User.where(username: "#{entered_username}").first
+  if user == nil
+    puts "Unknown username."
+  elsif entered_username == user.username && entered_password == user.password
+      puts "Correct password."
+  else
+     puts "Incorrect password."
+  end
