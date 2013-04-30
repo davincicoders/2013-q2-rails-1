@@ -7,4 +7,11 @@ power_type = readline.chomp
 puts "Word to search for in station name, or leave blank:"
 word = readline.chomp
 
+
+stations = BCycleStation.where("PROPERTY_TYPE like ?", "%#{property_type}%").where("POWER_TYPE like ?", "%#{power_type}%").where("STATION_NAME like ?", "%#{word}%")
+
+for station in stations
+  puts station.station_name
+end
+
 # TODO: Implement printing out the station names that match the filters
