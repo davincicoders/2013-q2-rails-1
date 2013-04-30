@@ -9,7 +9,7 @@ user = G189User.where(username: "#{entered_username}").first
   if user == nil
     puts "Unknown username."
   elsif entered_username == user.username && entered_password == user.password
-      puts "Correct password."
+    puts "Correct password."
   else
-     puts "Incorrect password."
+    puts "Incorrect password."
   end
