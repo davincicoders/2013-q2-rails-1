@@ -8,3 +8,17 @@ puts "Word to search for in station name, or leave blank:"
 word = readline.chomp
 
 # TODO: Implement printing out the station names that match the filters
+
+stations = BCycleStation.order('id')
+
+if property_type != ""
+  stations = stations.where(property_type: property_type)
+elsif power_type != ""
+  stations = stations.where(power_type: power_type)
+elsif word != ""
+  stations = stations.where("station_name like ?", "%#{word}%")
+end
+
+for station in stations
+  puts station.station_name
+end
