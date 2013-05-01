@@ -1,16 +1,14 @@
 require './connect_to_db'
-require "pry"
 
 puts "Enter username:"
 entered_username = readline.chomp
 puts "Enter password:"
 entered_password = readline.chomp
 
-binding.pry
-
 objUser = G189User.where(username: entered_username).first
 
 puts case 
+    when entered_username != "Jen" && entered_username != "Jim"; "Unknown username."
     when objUser && objUser.password == entered_password; "Correct password."
     else "Incorrect password."
     end 
