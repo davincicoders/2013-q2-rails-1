@@ -8,6 +8,8 @@ recipe_name = readline.chomp
 # Don't include the recipe name that was entered at the beginning.
 # If you can't find a recipe by that name, output Unknown recipe.
 
+#binding.pry
+
 recipe = Recipe.where(recipe_name: recipe_name).first
 author = recipe.author
 
