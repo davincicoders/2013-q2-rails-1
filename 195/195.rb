@@ -3,6 +3,16 @@ require './connect_to_db.rb'
 puts "Enter a movie title to see its actors (limited to this tiny database):"
 movie_title = readline.chomp
 
+movie = Movie.where(title: movie_title).first
+if movie == nil
+	puts "Sorry, #{movie_title} was not found."
+else
+	for actor in movie.actors
+		puts "#{actor.first_name} #{actor.last_name}"
+	end
+end
+	
+
 # TODO: List the actors that acted in the movie that the user entered.
 # If that movie isn't in the database, print:
 # Sorry, ___ was not found.
