@@ -12,7 +12,7 @@ else
   movie_actors = movie.actors
 
   if movie_actors != []
-    puts "#{movie_title} stars the following actor(s):"
+#    puts "#{movie_title} stars the following actor(s):"
 
     for movie_actor in movie_actors
       puts "#{movie_actor.first_name} #{movie_actor.last_name}"
