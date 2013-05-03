@@ -10,25 +10,6 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-class G197Customer < ActiveRecord::Base
-  has_many :g197_orders
-end
-
-class G197SalesRep < ActiveRecord::Base
-  has_many :g197_orders
-end
-
-class G197Order < ActiveRecord::Base
-  belongs_to :g197_sales_rep
-  has_many :g197_order_items
-  belongs_to :g197_customer
-end
-
-class G197OrderItem < ActiveRecord::Base
-  belongs_to :g197_order
-  belongs_to :g197_product
-end
-
-class G197Product < ActiveRecord::Base
-  has_many :g197_order_items
-end
+# To do: add Active Record class definitions for all the tables you need.
+# See computers_today_db.sql for what tables are available.
+# See 198/connect_to_db.rb and 199/connect_to_db.rb for examples.
