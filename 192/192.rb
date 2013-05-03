@@ -6,7 +6,6 @@ recipe_name = readline.chomp
 # first lookup recipe.
 recipe = Recipe.where(recipe_name: recipe_name).first
 
-
 if recipe == nil # if recipe not known - Unknown recipe.
   puts "Unknown recipe."
 else # lookup author and other recipes.
