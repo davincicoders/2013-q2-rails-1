@@ -8,7 +8,7 @@ create table elements (
   density varchar(100),
   melting_point float,
   boiling_point float,
-  atomic_radius varchar(100),
+  atomic_radius integer,
   covalent_radius varchar(100),
   ionic_radius varchar(100),
   specific_volume varchar(100),
