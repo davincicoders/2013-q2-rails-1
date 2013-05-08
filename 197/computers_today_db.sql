@@ -91,7 +91,7 @@ create table g197_orders (
   id                  integer not null,
   g197_customer_id    integer not null,
   g197_sales_rep_id   integer not null,
-  date_received       varchar(100) not null,
+  date_received       date not null,
   payment_method      varchar(100) not null,
   primary key (id)
 );
