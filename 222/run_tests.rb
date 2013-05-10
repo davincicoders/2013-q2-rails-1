@@ -23,12 +23,13 @@ end
 
 class Test222 < MiniTest::Unit::TestCase
   def test1
-    if Cat.where(name: "Felix").count > 0
-      Cat.create(name: "Flex", location: "somewhere")
-    end
+    Cat.delete_all
+    Cat.create(name: "Felix", location: "somewhere")
+    Cat.create(name: "Fluffy", location: "somewhere")
 
     load "222.rb"
 
     Cat.where(name: "Felix").count.must_equal 0
+    Cat.where(name: "Fluffy").count.must_equal 1
   end
 end
