@@ -8,3 +8,14 @@ movie_title = readline.chomp
 # Sorry, ___ was not found.
 # If there are no actors for that movie, just print nothing.
 # Otherwise, print out the first and last name of each actor.
+
+
+movie = Movie.where(title: movie_title).first
+
+if movie == nil
+  puts "Sorry, #{movie_title} was not found."
+else
+  for actor in movie.actors
+    puts "#{actor.first_name} #{actor.last_name}"
+  end
+end
