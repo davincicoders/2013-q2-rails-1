@@ -14,10 +14,10 @@ entered_password = readline.chomp
 # end
 
 # NOT SECURE: vulnerable to SQL injection
-# user = G218User.where("username = '#{entered_username}'").first
+ user = G218User.where("username = '#{entered_username}'").first
 
 # More secure:
-user = G218User.where(username: entered_username).first
+#user = G218User.where(username: entered_username).first
 
 # More secure:
 # user = G218User.where("username = ?", entered_username).first
