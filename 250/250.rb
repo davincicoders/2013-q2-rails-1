@@ -9,3 +9,17 @@ name_or_number = readline.chomp
 # TODO: If they enter a name, look up that student by name.
 # TODO: If no such student exists, print ____ is not registered.
 # TODO: Otherwise, remove the student and print ____ removed.
+
+
+if name_or_number.to_i.to_s == name_or_number
+  student = Student.where(student_number: name_or_number).first
+else
+  student = Student.where(full_name: name_or_number).first
+end
+
+if student != nil
+  student.destroy
+  puts "#{name_or_number} removed."
+else
+  puts "#{name_or_number} is not registered."
+end
