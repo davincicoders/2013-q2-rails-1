@@ -22,7 +22,4 @@ class Student < ActiveRecord::Base
   validates_presence_of :student_number
   validates_presence_of :full_name
   validates_uniqueness_of :student_number
-
-
-  
 end
