@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <h1><p align="center">Computers Today</h1>
+    <table align="center" border='1'>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Sales Rep Name</th>
+        <th>Date Received</th>
+        <th>Payment Method</th>
+        <th>Product Name</th>
+      </tr>
+      <% for orders in @g197_orders %>
+        <tr>
+          <td align="center"><%= orders.id %></td>
+          <td><%= "#{orders.g197_customer.first_name} #{orders.g197_customer.middle_name} #{orders.g197_customer.last_name}" %>
+          <td><%= "#{orders.g197_sales_rep.first_name} #{orders.g197_sales_rep.middle_name} #{orders.g197_sales_rep.last_name}" %>
+          <td><%= orders.date_received %>
+          <td align="center"><%= orders.payment_method %>
+          <td><%  for items in G197OrderItem.where(g197_order_id: orders.id) %>
+              <%    product = G197Product.where(id: items.g197_product_id).first %>
+          <li><%= product.name %>
+              <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>

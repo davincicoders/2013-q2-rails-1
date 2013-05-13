@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <h1><p align="center">Elements</h1>
+    <table align="center" border='1'>
+      <tr>
+        <th>Element Name</th>
+        <th>Element Symbol</th>
+        <th>Atomic Number</th>
+        <th>Atomic Weight</th>
+      </tr>
+      <% for element in @elements %>
+        <tr>
+          <td><%= element.name %></td>
+          <td><p align="center"><%= element.symbol %></td>
+          <td><p align="center"><%= element.atomic_number %></td>
+          <td><p align="center"><%= element.atomic_weight %></td>
+        </tr></span>
+      <% end %>
+    </table>
+  </body>
+</html>
