@@ -7,9 +7,13 @@ end
 # If there's no Felix record found, just do nothing; there shouldn't be an
 # error.
 
-Fluffy = Cat.where(name:"Fluffy").first
+fluffy = Cat.where(name: "Fluffy").first
 
-if Fluffy.nil?
-else
-Fluffy.destroy
+# if fluffy.nil?
+# else
+# fluffy.destroy
+# end
+
+if fluffy
+	fluffy.destroy
 end
