@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Elements</h1>
+    <table border='1'>
+      <tr>
+        <th>ID</th>
+        <th>Element Name</th>
+        <th>Symbol</th>
+        <th>Category</th>
+        
+      </tr>
+      <% for each in @elements %>
+        <tr>
+          <td><%= each.id %></td>
+          <td><%= each.name %></td>
+          <td><%= each.symbol %></td>
+          <td><%= each.category %></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
