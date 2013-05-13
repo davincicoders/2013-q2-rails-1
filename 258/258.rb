@@ -6,8 +6,3 @@ require './connect_to_db.rb'
 #       Each row of the <table> will visualize a row from the us_cities table.
 #       Use the UsCity Active Record class.
 #       Imitate the colors example (#257).
-
-get("/") do
-  @cities = UsCity.all
-  halt erb(:us_cities)
-end
