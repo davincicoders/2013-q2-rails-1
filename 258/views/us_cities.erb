@@ -1,8 +1,21 @@
 <html>
   <body>
     <h1>U.S. Cities</h1>
-
-    <!-- TODO: create an HTML <table> here -->
-
+    <table border='1'>
+      <tr>
+        <th>name</th>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>time_zone</th>
+      </tr>
+      <% for city in @cities %>
+        <tr>
+          <td><%= city.name %></td>
+          <td><%= city.latitude %></td>
+          <td><%= city.longitude %></td>
+          <td><%= city.time_zone %></td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>
