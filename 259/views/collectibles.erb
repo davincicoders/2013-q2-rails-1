@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <h1>Collectibles</h1>
+    <table border='1'>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>description</th>
+        <th>episode</th>
+        <th>category</th>
+      </tr>
+      <% for collectible in @collectibles %>
+        <tr>
+          <td><%= collectible.id %></td>
+          <td><%= collectible.name %></td>
+          <td><%= collectible.description %></td>
+          <td><%= collectible.g198_episode.name %></td>
+          <td><%= collectible.g198_category.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
