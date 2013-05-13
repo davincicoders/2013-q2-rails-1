@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <h1>Colors</h1>
+    <table border='1'>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>code</th>
+      </tr>
+      <% for color in @colors %>
+        <tr>
+          <td><%= color.id %></td>
+          <td><%= color.name %></td>
+          <td><%= color.code %></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
