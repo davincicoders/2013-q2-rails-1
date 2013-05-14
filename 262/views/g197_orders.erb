@@ -17,8 +17,8 @@
           <td><%= "#{orders.g197_sales_rep.first_name} #{orders.g197_sales_rep.middle_name} #{orders.g197_sales_rep.last_name}" %>
           <td><%= orders.date_received %>
           <td align="center"><%= orders.payment_method %>
-          <td><%  for items in G197OrderItem.where(g197_order_id: orders.id) %>
-              <%    product = G197Product.where(id: items.g197_product_id).first %>
+          <td><%  for items in orders.g197_order_items %>
+              <%    product = items.g197_product %>
           <li><%= product.name %>
               <% end %>
         </tr>
