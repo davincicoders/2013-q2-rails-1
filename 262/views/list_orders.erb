@@ -1,0 +1,37 @@
+<!--
+Directory 262: Write a web app to show all the orders for the Computers Today business (same data as directory 197). The columns should be:
+  Order ID
+  Customer name (not customer ID)
+  Sales rep name (not sales rep ID)
+  Date received
+  Payment method
+  Product names (join through both g197_order_items and g197_products)
+-->
+<html>
+  <head>
+    <title>
+      Orders (262)
+    </title>
+  </head>
+  <body bgcolor="#990000">
+    <table cellpadding=4 cellspacing=0>
+      <tr bgcolor="#550000">
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Sales Rep Name</th>
+        <th>Date Received</th>
+        <th>Payment Method</th>
+        <th>Product Names</th>
+      </tr>
+      <% for order in @orders %>
+      <tr bgcolor="#770000">
+        <td><%= order.id %></td>
+        <td><%= "#{order.g197_customer.first_name} #{order.g197_customer.middle_name} #{order.g197_customer.last_name}" %></td>
+        <td><%= "#{order.g197_sales_rep.first_name} #{order.g197_sales_rep.middle_name} #{order.g197_sales_rep.last_name}" %></td>
+        <!--<td>order.date_received</td>
+        <td>order.payment_method</td>
+        <td>order.g197_products</td>-->
+      </tr>
+    </table>
+  </body>
+</html>
