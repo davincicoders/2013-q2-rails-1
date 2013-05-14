@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>
+      List of Elements
+    </title>
+  </head>
+  <body bgcolor="#bada55">
+    <div style="position:absolute; left:20%; top:20;">
+      <!-- This is the upper image -->
+      <img src="/images/Spirit-Title.png">
+    </div>
+    <div style="position:absolute; left:40%; top:50;">
+      <!-- This is the text for the upper image -->
+      <h1><font size=7>Elements</font></h1>
+    </div> 
+    <div style="position:absolute; left:35%; top:220;">
+      <!-- This is the lower text table -->
+      <p>
+      <table cellpadding=4 cellspacing=0>
+        <tr bgcolor="#AAAAAA">
+          <th>id</th>
+          <th>name</th>
+          <th>symbol</th>
+          <th>category</th>
+        </tr>
+        <% for element in @elements %>
+        <tr bgcolor="#DDDDDD">
+            <td><%= "#{element.atomic_number}:" %></td>
+            <td><%= element.name %></td>
+            <td><%= element.symbol %></td>
+            <td><%= element.category %></td>
+        </tr>
+        <% end %>
+    </div>
+</body>
+</html>

@@ -8,3 +8,12 @@ require './connect_to_db.rb'
 #   Deb Miller
 # MA202 Calculus
 #   Deb Miller
+
+courses = Course.order("course_number")
+for course in courses
+  students = course.students.all
+  puts "#{course.course_number} #{course.name}"
+  for student in students
+    puts "  #{student.full_name}"
+  end
+end
