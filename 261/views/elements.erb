@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Elements Table</title>
+  </head>
+  <body>
+     <h1>Elements Table</h1>
+
+     <table border="2">
+      <tr>
+        <th>Atomic Number</th>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Category</th>
+      </tr>
+      <tr>
+        <% for element in @elements %>
+        <td><%= element.id %></td>
+        <td><%= element.name %></td>
+        <td><%= element.symbol %></td>
+        <td><%= element.category %></td>
+      </tr>
+      <% end %>
+     </table>
+  </body>
+</html>
