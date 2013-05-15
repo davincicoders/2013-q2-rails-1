@@ -2,22 +2,22 @@
   <head>
     <title>The Amazing Elements!</title>
   </head>
-<body>
-  <h1>THE AMAZING ELEMENTS!!</H1>
+<body style="background-color:#c8c8c8">
+  <h1 style="font-size:72px;font-family:Verdana;text-align:center;">THE AMAZING ELEMENTS!!</H1>
   <table border = "1">
       <tr>
-        <th style="color:red;font-size:20px;">Element Name</th>
-        <th style="color:red;font-size:20px;">Element Symbol</th>
-        <th style="color:red;font-size:20px;">Atomic Number</th>
-        <th style="color:red;font-size:20px;">Atomic Weight</th>
+        <th style="color:red;font-size:50px;">Element Name</th>
+        <th style="color:red;font-size:50px;">Element Symbol</th>
+        <th style="color:red;font-size:50px;">Atomic Number</th>
+        <th style="color:red;font-size:50px;">Atomic Weight</th>
       </tr>
       <% for element in @elements %>
-        <tr>
+        <tr style="font-size:36px;text-align:center;">
           <td><%= element.name %></td>
           <td><p align="center"><%= element.symbol %></td>
           <td><p align="center"><%= element.atomic_number %></td>
           <td><p align="center"><%= element.atomic_weight %></td>
-        </tr></span>
+        </tr>
       <% end %>
     </table>
   </body>
