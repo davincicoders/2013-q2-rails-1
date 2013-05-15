@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <head>
+   <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+    <title>The Amazing Elements!</title>
+  </head>
+<body>
+  <h1>THE AMAZING ELEMENTS!!</H1>
+  <table border = "1">
+      <tr>
+        <th style="color:red;font-size:20px;">Element Name</th>
+        <th style="color:red;font-size:20px;">Element Symbol</th>
+        <th style="color:red;font-size:20px;">Atomic Number</th>
+        <th style="color:red;font-size:20px;">Atomic Weight</th>
+      </tr>
+      <% for element in @elements %>
+        <tr>
+          <td><%= element.name %></td>
+          <td><p align="center"><%= element.symbol %></td>
+          <td><p align="center"><%= element.atomic_number %></td>
+          <td><p align="center"><%= element.atomic_weight %></td>
+        </tr></span>
+      <% end %>
+    </table>
+  </body>
+</html>
