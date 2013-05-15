@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Choose a fruit</h1>
+    <ul>
+      <% for fruit in @fruits %>
+        <li>
+          <a href="/fruit/<%= fruit.name %>">
+            <%= fruit.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
