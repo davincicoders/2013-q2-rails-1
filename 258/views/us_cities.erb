@@ -1,8 +1,15 @@
 <html>
   <body>
     <h1>U.S. Cities</h1>
-
-    <!-- TODO: create an HTML <table> here -->
-
+    <table border='1'>
+      <tr>
+        <th>City Name</th>
+      </tr>
+      <% for city in @cities %>
+        <tr>
+          <td><%= city.name %></td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>
