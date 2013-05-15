@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <h1><%= @fruit.name %></h1>
+    <img src="/images/<%= @fruit.image_filename %>"/>
+    <br/>
+    Price per pound: <b>$<%= @fruit.usd_per_lb %></tb>
+    <br/>
+    Pounds to buy:
+    <input type="text" name="num_pounds"/> lbs.
+    <br/>
+    <button>Buy</button>
+  </body>
+</html>
