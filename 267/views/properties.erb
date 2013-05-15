@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<h1>Real Estate for sale</h1>
+  <% for prop in @properties.order("id") %>
+<div style="float:left;margin-right:30px">
+  <a href="/property/<%= prop.id %>">
+    <img src="http://farm1.staticflickr.com/55/139445633_e2fabef491.jpg" width="250" height="188">
+  </a>
+  <br>
+  <div style="float:right">
+    <a href="/property/<%= prop.id %>">
+   <%= prop.price %>
+    </a>
+  </div>
+  <a href="/property/<%= prop.id %>">
+    <%= prop.address %>
+  </a>
+</div>
+<% end %>
+
+</div>
+
+</body>
+</html>
