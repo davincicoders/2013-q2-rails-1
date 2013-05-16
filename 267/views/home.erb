@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <img src="<%= @home.image_url %>" width = "300" height = "300"/>
+    <h1><%= @home.address%> <%=@home.city %> <%= @home.state %> </h1>
+    <h2><%= @home.price %></h2>
+    <h4> Bedrooms: <%= @home.num_bedrooms%> <br/> <br/>
+    Stories: <%=@home.num_stories%> <br/> <br/>
+    Square Feet: <%=@home.num_square_feet%>  
+    </hr>
+    <p> <a href="/properties"> Back </a>
+  </body>
+</html>
