@@ -13,7 +13,7 @@ Directory 262: Write a web app to show all the orders for the Computers Today bu
       Orders (262)
     </title>
   </head>
-  <body bgcolor="#990000">
+  <body bgcolor="#DD0000">
     <div style="position:absolute; left:20%; top:20;">
       <!-- This is the upper image -->
       <img src="/images/Spirit-Title.png">
@@ -26,7 +26,7 @@ Directory 262: Write a web app to show all the orders for the Computers Today bu
       <!-- This is the lower text table -->
       <p>
       <table cellpadding=4 cellspacing=0>
-        <tr bgcolor="#550000">
+        <tr bgcolor="#990000">
           <th>Order ID</th>
           <th>Customer Name</th>
           <th>Sales Rep Name</th>
@@ -35,7 +35,7 @@ Directory 262: Write a web app to show all the orders for the Computers Today bu
           <th>Product Names</th>
         </tr>
         <% for order in @orders %>
-        <tr bgcolor="#770000">
+        <tr bgcolor="#BB0000">
           <td><%= order.id %></td>
           <td><%= "#{order.g197_customer.first_name} #{order.g197_customer.middle_name} #{order.g197_customer.last_name}" %></td>
           <td><%= "#{order.g197_sales_rep.first_name} #{order.g197_sales_rep.middle_name} #{order.g197_sales_rep.last_name}" %></td>

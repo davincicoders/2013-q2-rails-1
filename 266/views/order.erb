@@ -1,7 +1,41 @@
 <html>
   <body>
-    <h1>Order <%= @order.id %></h1>
     <!-- TODO: adapt the rest of order-mock-up.html so it reads its values
          from the database instead of having hard-coded values -->
+    <h1>Order <%= @order.id %></h1>
+    <ul>
+      <li>
+        <b>Customer:</b>
+        <%= @order.g197_customer.first_name %>
+        <%= @order.g197_customer.middle_name %>
+        <%= @order.g197_customer.last_name %>
+      </li>
+      <li>
+        <b>Sales rep:</b>
+        <%= @order.g197_sales_rep.first_name %>
+        <%= @order.g197_sales_rep.middle_name %>
+        <%= @order.g197_sales_rep.last_name %>
+      </li>
+      <li>
+        <b>Date received:</b>
+        <%= @order.date_received %>
+      </li>
+      <li>
+        <b>Payment method:</b>
+        <%= @order.payment_method %>
+      </li>
+      <li>
+        <b>Products:</b>
+        <ul>
+        <% for item in @order.g197_order_items %>
+            <li>
+              <%= item.g197_product.name %>
+              for length
+              <%= item.subscription_length %>
+            </li>
+        <% end %>
+        </ul>
+      </li>
+    </ul>
   </body>
 </html>
