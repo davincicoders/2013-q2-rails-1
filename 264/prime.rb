@@ -7,21 +7,20 @@ def prime num
 			break if primes.size == num
 		end
 		until primes.size == num
-		2.upto(i / 2) do |x|
-			  if i % x != 0 && x == ((i/2).to_i)
+		  2.upto(Math.sqrt(i).to_i) do |x|
+			  if x == Math.sqrt(i).to_i && i % x != 0
 			  	primes.push(i)
 			  	i += 1
 			  	break
 			  elsif i % x != 0
 			  	next
-			else
+			  else
 				i += 1 
 				break
-			end
-			
-		end
+			  end
+		  end
 		end
 	puts primes[-1]
 end
 
-prime 10001
+prime 10000
