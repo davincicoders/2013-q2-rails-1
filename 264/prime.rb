@@ -13,7 +13,6 @@ def prime(num)
         i += 1
         break
       elsif i % x != 0
-        next
       else
       i += 1 
       break
