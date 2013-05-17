@@ -3,6 +3,51 @@
     <!-- TODO: fill this in -->
   </head>
   <body>
-    <!-- TODO: fill this in -->
+        <style>
+        label[for=your_name],
+        label[for=email],
+        label[for=web_site],
+        label[for=country],
+        label[for=human_check],
+        label[for=comments] {
+          width: 200px;
+          float: left;
+          font-family: Verdana;
+          font-size: 10px;
+        }
+        .label-spacer {
+          width: 100px;
+          height: 1px;
+          float: left;
+        }
+      </style>
+    <h3 style=font-family:"Verdana">Contact Us</h3>
+    <p style=font-family:"Verdana">* = required fields </p>
+  
+   <b><%= label_tag "your_name", caption: "*Your name" %></b>
+    <%= text_field_tag "your_name", id: "your_name", value: "" %>
+    <br>
+   <b><%= label_tag "email", caption: "*E-mail" %></b>
+    <%= text_field_tag "email", id: "email", value: "" %>
+    <br>
+    <%= label_tag "web_site", caption: "Website" %>
+    <%= text_field_tag "web_site", id: "web_site", value: "" %>
+    <br>
+    <%= label_tag "country", caption: "Country" %>
+    <%= text_field_tag "country", id: "country", value: "" %>
+    <br>
+    <b><%= label_tag "human_check", caption: "*Human-Check: <br>
+     Add 3 + 0:" %></b>
+    <%= text_field_tag "human_check", id: "human_check", value: "" %>
+    <br> 
+    <br>
+   <b><%= label_tag "comments", caption: "Comments:" %></b>
+    <%= text_area_tag "comments", id: "comments", value: "Type comments here.",
+    rows: 15, cols: 50 %>
+    <br>
+    <div class='label-spacer'></div>
+    <button name="action" value="save">Submit</button>
+    <div class='label-spacer'></div>
+    <button name="action" value="save">Clear</button>
   </body>
 </html>
