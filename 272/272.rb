@@ -7,3 +7,9 @@ register SinatraMore::MarkupPlugin
 get("/") do
   halt erb(:form)
 end
+
+post("/post_handler") do
+  # TODO: fill this in
+
+  halt erb(:thank_you)
+end

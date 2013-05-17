@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-    <% form_tag("/") do %>
+    <% form_tag("/post_handler") do %>
       <%= label_tag "first_name", caption: "First name" %>
       <%= text_field_tag "first_name", id: "first_name", value: "Jill" %>
       <br>
