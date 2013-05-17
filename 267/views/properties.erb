@@ -26,7 +26,7 @@ Buyer Brokerage, Business Opportunities, Condominiums, Development Land, Farm an
   <% for prop in @properties.order("id") %>
 <div style="float:left;margin-right:30px">
   <a href="/property/<%= prop.id %>">
-    <img src="http://farm1.staticflickr.com/55/139445633_e2fabef491.jpg" width="250" height="188">
+    <img src=" <%= prop.image_url %> " width="250" height="188">
   </a>
   <br>
   <div style="float:right">

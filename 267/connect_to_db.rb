@@ -10,5 +10,5 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-class Properties < ActiveRecord::Base
+class Property < ActiveRecord::Base
 end
