@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <h1>Sushi orders</h1>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Table number</th>
+        <th>Ordered at</th>
+        <th>Line items</th>
+        <th>Total price</th>
+      </tr>
+      <% for order in @orders %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.table_number %></td>
+          <td><%= order.created_at %></td>
+          <td>
+            <ul>
+              <% for line_item in order.sushi_order_line_items %>
+                <li>
+                  <%= line_item.sushi_dish.name %>
+                  @ $<%= sprintf("%.2f", line_item.sushi_dish.price || 0) %>
+                  x <%= line_item.quantity %> =
+                  $<%= sprintf("%.2f", line_item.line_price || 0) %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+          <td align='right'>
+            $<%= sprintf("%.2f", order.total_price || 0) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
