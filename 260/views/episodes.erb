@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <style>
+      tr {
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Episodes</h1>
+    <table border='1'>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>collectibles</th>
+      </tr>
+      <% for episode in @episodes %>
+        <tr>
+          <td><%= episode.id %></td>
+          <td><%= episode.name %></td>
+          <td>
+            <ul>
+              <% for collectible in episode.g198_collectibles %>
+                <li><%= collectible.name %></li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
