@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <h1>Sushi a la carte</h1>
+    <% form_tag "/handle_post" do %>
+      <p>
+        What is your table number? <br/>
+        <input type="text" name="table_number"/>
+      </p>
+
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Price for each</th>
+          <th>Quantity desired</th>
+        </tr>
+
+        <% for dish in @dishes %>
+          <tr>
+            <td>
+              <%= dish.name %>
+            </td>
+            <td align="right">
+              $<%= sprintf("%.2f", dish.price) %>
+            </td>
+            <td>
+              <%= text_field_tag "quantity_for_dish_#{dish.id}", size: 2 %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <button name="action" value="place_order">Place order</button>
+    <% end %>
+  </body>
+</html>
