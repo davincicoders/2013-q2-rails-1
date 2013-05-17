@@ -1,43 +1,35 @@
 <html>
   <body>
-    <h1>Order 3</h1>
+    <% for order in 
+    <h1>Order <%= @order.id %></h1>
     <ul>
       <li>
         <b>Customer:</b>
-        Miranda
-        
-        Greenfield
+        <%= @order.first_name %>
+        <%= @order.middle_name %>
+        <%= @order.last_name %>
       </li>
       <li>
         <b>Sales rep:</b>
-        Victoria
-        Sanchez
-        Garcia
+        <%= @order.g197sales_rep.first_name %>
+        <%= @order.g197sales_rep.middle_name %>
+        <%= @order.g197sales_rep.last_name %>
       </li>
       <li>
         <b>Date received:</b>
-        2006-11-28
+        <%= @order.date_received %>
       </li>
       <li>
         <b>Payment method:</b>
-        Visa
+        <%= @order.payment_method %>
       </li>
       <li>
         <b>Products:</b>
         <ul>
-          
+          <% for items in @order.g197order_items %>
             <li>
-              Computers Today
-              for length 1
+              <%= item.product.name %>
             </li>
-          
-            <li>
-              PCs in Education
-              for length 1
-            </li>
-          
-        </ul>
-      </li>
     </ul>
   </body>
 </html>
