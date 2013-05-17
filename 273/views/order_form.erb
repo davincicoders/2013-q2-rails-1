@@ -2,6 +2,38 @@
   <body>
     <h1>Sub sandwich order form</h1>
 
-    <!-- Base this form on order_form_mockup.html -->
+    <% form_tag "/handle_post" do %>
+      <p>
+        Base cost for 6 inch sub:
+        <b>$3.49</b>
+      </p>
+
+      <%= label_tag "sandwich_type" %>
+      <%= select_tag "sandwich_type", id: "sandwich_type",
+        options: ["Italian", "B.L.T.", "Vegetarian", "Bacon Egg & Cheese"] %>
+      <br>
+
+      <%= label_tag "bread_type" %>
+      <%= select_tag "bread_type", id: "bread_type",
+        options: ["white", "wheat", "rye"] %>
+      <br>
+
+      <%= check_box_tag "want_12_inch", id: "want_12_inch" %>
+      <%= label_tag "want_12_inch", caption: "Upgrade to 12 inch" %>
+      <b>Add $2.00</b>
+      <br>
+
+      <%= check_box_tag "want_extra_cheese", id: "want_extra_cheese" %>
+      <%= label_tag "want_extra_cheese", caption: "Extra cheese" %>
+      <b>Add $0.49</b>
+      <br>
+
+      <%= check_box_tag "want_chips", id: "want_chips" %>
+      <%= label_tag "want_chips", caption: "Add chips" %>
+      <b>Add $0.99</b>
+      <br>
+ 
+      <button name="action" value="place_order">Place order</button>
+    <% end %>
   </body>
 </html>
