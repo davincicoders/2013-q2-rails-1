@@ -1,8 +1,63 @@
 <html>
   <head>
-    <!-- fill this in -->
+    <title>
+      Step 3: complex form input types
+    </title>
   </head>
+  
   <body>
-    <!-- fill this in -->
-  </body>
+  
+    <h1>My feedback form</h1>
+  
+    <ul>
+      <li>
+        <%= label_tag "name", caption: "Name:" %>
+        <%= text_field_tag "name_entered", id: "name" %>
+      <li>
+        <%= label_tag "email", caption: "Email:" %>
+        <%= text_field_tag "email_entered", id: "email" %>
+      <li>
+        <%= label_tag "pass", caption: "Password:" %>
+        <%= text_field_tag "pass_entered", id: "pass" %>
+      <p>
+      <li> Please check all the emotions that apply to you:
+        <ul>
+          <li>
+            <%= label_tag "angry", caption: "Angry" %>
+            <%= check_box_tag "angry_check", id: "angry" %>
+          <li>
+            <%= label_tag "sad", caption: "Sad" %>
+            <%= check_box_tag "sad_check", id: "sad" %>
+          <li>
+            <%= label_tag "happy", caption: "Happy" %>
+            <%= check_box_tag "happy_check", id: "happy" %>
+          <li>
+            <%= label_tag "ambiv", caption: "Ambivalent" %>
+            <%= check_box_tag "ambiv_check", id: "ambiv" %>
+        </ul>
+      <li> How satisfied were you with  our service?
+        <ul>
+          <li>
+            <%= label_tag "sat_check_very", caption: "Very satisfied" %>
+            <%= radio_button_tag "sat_check", id: "sat_check_very" %>
+          <li>
+            <%= label_tag "sat_check_sat", caption: "Satisfied" %>
+            <%= radio_button_tag "sat_check", id: "sat_check_sat" %>
+          <li>
+            <%= label_tag "sat_check_nocare", caption: "Didn't care" %>
+            <%= radio_button_tag "sat_check", id: "sat_check_nocare" %>
+          <li>
+            <%= label_tag "sat_check_dis", caption: "Dissatisfied" %>
+            <%= radio_button_tag "sat_check", id: "sat_check_dis" %>
+          <li>
+            <%= label_tag "sat_check_very_dis", caption: "Very dissatisfied" %>
+            <%= radio_button_tag "sat_check", id: "sat_check_very_dis" %>
+        </ul>
+        <li> Further comments: <%= text_area_tag "further" %>
+        <p>
+        <li> Bio photo: <%= button_tag "Choose File" %> No file chosen
+        <li> Location visited: <%= select_tag "loc", options: ["Select location", ""], selected: "Select location" %>
+        <li> <%= button_tag "submit" %>
+      </ul>
+</body>
 </html>

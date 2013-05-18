@@ -1,5 +1,5 @@
 <html>
-<body>
+<body bgcolor="#001337">
 
 <h1>Real Estate for sale</h1>
 <% for property in @properties %>
@@ -17,7 +17,6 @@
       <%= property.address %>
     </a>
   </div>
-  <br>
 <% end %>
 </body>
 </html>
