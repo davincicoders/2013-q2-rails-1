@@ -1,8 +1,66 @@
 <html>
   <head>
     <!-- TODO: fill this in -->
+    <title>May 17th</title>
   </head>
-  <body>
+  <body>    
     <!-- TODO: fill this in -->
+    <% form_tag("/form_post") do %>
+      <h3>Contact Us</h3>
+      <hr>
+      <font color="#FF0000">* = required fields</font>
+      <p>
+      <table>
+        <tr>
+          <td>
+            <b><%= label_tag "full_name", caption: "* Your Name:" %></b>
+          </td>
+          <td>
+            <%= text_field_tag "name_entered", id: "full_name" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b><%= label_tag "email", caption: "* E-Mail:" %></b>
+          </td>
+          <td>
+            <%= text_field_tag "email_entered", id: "email" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= label_tag "website", caption: "Web site:" %>
+          </td>
+          <td>
+            <%= text_field_tag "website_entered", id: "website" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= label_tag "country", caption: "Country:" %>
+          </td>
+          <td>
+            <%= text_field_tag "country_entered", id: "country" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b><%= label_tag "humancheck", caption: "* Human Check:" %></b> What is<br>the sum of: <%= @rand1 %> + <%= @rand2 %>?
+          </td>
+          <td>
+            <%= text_field_tag "human_entered", id: "humancheck", size: "5" %>
+          </td>
+        <tr>
+          <td valign="top">
+            <b><%= label_tag "comment_suggest", caption: "* Comments/Suggestions:" %></b>
+          </td>
+          <td>
+            <%= text_area_tag "comments_entered", id: "comment_suggest", rows: "10", cols: "50" %>
+            <br>
+            <%= submit_tag "Submit" %><%= button_tag "Clear" %>
+          </td>
+        </tr>
+      </table
+    <% end %>
   </body>
 </html>

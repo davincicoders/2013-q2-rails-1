@@ -11,3 +11,6 @@ ActiveRecord::Base.establish_connection(
   database: "postgres")
 
 # TODO: define an Active Record class here
+
+class ContactUsSubmission < ActiveRecord::Base
+end
