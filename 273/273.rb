@@ -17,7 +17,18 @@ post("/handle_post") do
   # - want_extra_cheese (true or false)
   # - want_chips (true or false)
   # - total_order (a float. for example: 3.49)
-
+  order = SubOrder.new
+  order.sandwich_type = params["sand_type"]
+  order.bread_type = params["bread_type"]
+  order.want_12_inch = params["upgrade"]
+  order.want_extra_cheese = params["extra"]
+  order.want_chips = params["add"]
+  total = 3.49
+  total += 2.0 if order.want_12_inch
+  total += 0.49 if order.want_extra_cheese
+  total += 0.99 if order.want_chips
+  order.total_order = total.round(2)
+  order.save
   halt erb(:thank_you)
 end
 
