@@ -4,6 +4,8 @@ require './connect_to_db.rb'
 
 register SinatraMore::MarkupPlugin
 
+after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
+
 get "/" do
   redirect "/contact_us"
 end
