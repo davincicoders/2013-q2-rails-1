@@ -4,8 +4,8 @@
   </head>
   <body>
     <h1>Contact Us</h1>
-    <% form_tag("/") do %>
-    
+    <% form_tag("/post_handler") do %>
+
       <%= label_tag "name", caption: "Your Name:" %>
       <%= text_field_tag "name", id: "name" %>
       <br>
@@ -22,7 +22,7 @@
       <%= text_field_tag "human_check", id: "human_check" %>
       <br>
       <%= label_tag "comments", caption: "Comments/Suggestions:" %>
-      <div class='label-spacer'></div>
+      <br>
       <%= text_area_tag "comments", id: "comments", rows: 6, cols: 17 %>
       <div class='label-spacer'></div>
       <button name="action" value="save">Submit</button>
