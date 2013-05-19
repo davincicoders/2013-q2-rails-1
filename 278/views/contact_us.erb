@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+      label {
+        float: left;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+
+    <% form_tag "/contact_us" do %>
+      <p>* = required fields</p>
+
+      <label for="name">* Your Name:</label>
+      <%= text_field_tag "name", id: "name" %>
+      <br>
+
+      <label for="email">* Email:</label>
+      <%= text_field_tag "email", id: "email" %>
+      <br>
+
+      <label for="web_site">Web site:</label>
+      <%= text_field_tag "web_site", id: "web_site" %>
+      <br>
+
+      <label for="web_site">Country:</label>
+      <%= text_field_tag "country", id: "country" %>
+      <br>
+
+      <label for="comments">* Comments/suggestions:</label>
+      <%= text_area_tag "comments", id: "comments" %>
+      <br>
+
+      <button>Submit</button>
+    <% end %>
+  </body>
+</html>
