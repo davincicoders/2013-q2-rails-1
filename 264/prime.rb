@@ -1,18 +1,21 @@
 def prime(num)
   primes = [2, 3]
-  i = 4
-  until primes.size == num
-		2.upto(Math.sqrt(i).to_i) do |x| 
-			if x == Math.sqrt(i).to_i && i % x != 0
-        primes.push(i)
-        i += 1
-      elsif i % x != 0
-      else
-      i += 1 
-      break
-      end
-		  end
+  possible_prime = 4
+  until primes.size == num  
+    check_point = Math.sqrt(possible_prime).to_i
+    catch :next_possible_prime do
+  		2.upto(check_point) do |divisor|
+        next if divisor != check_point && possible_prime % divisor != 0
+  			if divisor == check_point && possible_prime % divisor != 0
+          primes.push(possible_prime)
+          possible_prime += 1
+        else
+          possible_prime += 1 
+          throw :next_possible_prime
+        end
+  		end
 		end
+  end
 	puts primes[-1]
 end
 
