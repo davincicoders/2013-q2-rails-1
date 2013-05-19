@@ -9,7 +9,12 @@ get("/") do
 end
 
 post("/post_handler") do
-  # TODO: fill this in
-
+  submission = ContactUsSubmission.new
+  submission.name = params["name"]
+  submission.email = params["email"]
+  submission.web_site = params["web_site"]
+  submission.country = params["country"]
+  submission.comments = params["comments"]
+  submission.save!
   halt erb(:thank_you)
 end

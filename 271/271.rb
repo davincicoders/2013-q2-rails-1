@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
-require 'pry'
+#require 'pry'
 
 register SinatraMore::MarkupPlugin
 
@@ -10,7 +10,7 @@ get("/") do
 end
 
 post("/post_handler") do
-  binding.pry
+ # binding.pry
 
   submission = DemoFormSubmission.new
   submission.first_name = params["first_name"]
