@@ -17,7 +17,14 @@
           <td><%= order.g197_sales_rep.last_name %></td>
           <td><%= order.date_received %></td>
           <td><%= order.payment_method %></td>
-          <td><%= order.g197_order_items.map {|order_item| order_item.g197_product.name} %></td>
+        	<td>
+          <% products = [] %>
+          <% p order.g197_order_items.each do %>
+          <% products << order_item.g197_product.name %>
+          <% end %>
+          <%= products.join (", ") %>
+          </td>
+
         </tr>
       <% end %>
     </table>

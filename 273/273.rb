@@ -8,15 +8,22 @@ get("/") do
   halt erb(:order_form)
 end
 
-post("/handle_post") do
-  # TODO: save the sub order into the sub_orders table.
-  # Make sure to fill out:
-  # - sandwich_type (string)
-  # - bread_type (string)
-  # - want_12_inch (true or false)
-  # - want_extra_cheese (true or false)
-  # - want_chips (true or false)
-  # - total_order (a float. for example: 3.49)
+post("/post_handler") do
+  submission = SubOrder.new 
+  submission.sandwich_type = params["sandwich_type" ]
+  submission.bread_type = params["bread_type"]
+  submission.want_12_inch = (params["want_12_inch"] != nil)
+  submission.want_extra_cheese = (params["want_extra_cheese"] != nil)
+  submission.want_chips = (params["want_chips"] != nil)
+  
+  
+  total_cost  = 3.49
+  total_cost += 2.00 if submission.want_12_inch
+  total_cost += 0.49 if submission.want_extra_cheese
+  total_cost += 0.99 if submission.want_chips
+  submission.total_order = total_cost.round(2)
+  
+  submission.save!
 
   halt erb(:thank_you)
 end
