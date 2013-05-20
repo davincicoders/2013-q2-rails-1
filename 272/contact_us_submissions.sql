@@ -6,5 +6,6 @@ name        varchar(250),
 email       varchar(250),
 web_site    varchar(250),
 country     varchar(250),
-primary key (id),
+comments	varchar(250),
+primary key (id)
 );

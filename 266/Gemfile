@@ -6,3 +6,4 @@ gem 'pry-debugger'
 gem 'pry-doc'
 
 gem 'activerecord'
+gem 'activerecord-postgresql-adapter'
