@@ -13,7 +13,7 @@
         <th>Cost</th>
         <th>Ordered at</th>
       </tr>
-      <% for order in @orders %>
+      <% for order in SubOrder.all  %>
         <tr>
           <td><%= order.id %></td>
           <td><%= order.sandwich_type %></td>

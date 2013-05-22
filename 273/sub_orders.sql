@@ -7,7 +7,7 @@ create table sub_orders (
   want_12_inch      boolean,
   want_extra_cheese boolean,
   want_chips        boolean,
-  total_order       varchar (250),
+  total_order       NUMERIC(5,2),
   created_at        timestamp,
   updated_at        timestamp,
   primary key (id)
