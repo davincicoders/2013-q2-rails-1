@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <h1>Sub sandwich order form</h1>
+
+    <form method="post" action="/handle_post">
+      <p>
+        Base cost for 6 inch sub:
+        <b>$3.49</b>
+      </p>
+
+      <label for="sandwich_type">Sandwich Type: </label>
+      <select id="sandwich_type" name="sandwich_type">
+        <option value="Italian">Italian</option>
+        <option value="B.L.T.">B.L.T.</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Bacon Egg & Cheese">Bacon Egg &amp; Cheese</option>
+      </select>
+      <br>
+
+      <label for="bread_type">Bread Type: </label>
+      <select id="bread_type" name="bread_type">
+        <option value="white">white</option>
+        <option value="wheat">wheat</option>
+        <option value="rye">rye</option>
+      </select>
+      <br>
+
+      <input id="want_12_inch" name="want_12_inch" type="checkbox" />
+      <label for="want_12_inch">Upgrade to 12 inch</label>
+      <b>Add $2.00</b>
+      <br>
+
+      <input id="want_extra_cheese" name="want_extra_cheese" type="checkbox" />
+      <label for="want_extra_cheese">Extra cheese</label>
+      <b>Add $0.49</b>
+      <br>
+
+      <input id="want_chips" name="want_chips" type="checkbox" />
+      <label for="want_chips">Add chips</label>
+      <b>Add $0.99</b>
+      <br>
+ 
+      <button name="action" value="place_order">Place order</button>
+    </form>
+  </body>
+</html>
