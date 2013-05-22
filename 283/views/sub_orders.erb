@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Sub orders</title>
+  </head>
+  <body>
+    <h1>Sub orders</h1>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Sandwich type</th>
+        <th>12 inch</th>
+        <th>Bread type</th>
+        <th>Extra cheese</th>
+        <th>Chips</th>
+        <th>Cost</th>
+        <th>Ordered at</th>
+      </tr>
+      <% for order in @orders %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.sandwich_type %></td>
+          <td><%= order.want_12_inch %></td>
+          <td><%= order.bread_type %></td>
+          <td><%= order.want_extra_cheese %></td>
+          <td><%= order.want_chips %></td>
+          <td>$<%= order.total_order %></td>
+          <td><%= order.created_at %></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
