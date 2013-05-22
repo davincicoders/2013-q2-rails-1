@@ -11,3 +11,4 @@ create table contact_us_comments (
   updated_at timestamp,
   primary key (id)
 );
+
