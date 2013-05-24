@@ -6,7 +6,4 @@ gem 'minitest-reporters'
 
 gem 'pry-debugger'
 
-gem 'activerecord', '~> 3.2'
-gem 'activerecord-postgresql-adapter'
-
 gem 'sinatra_more'
