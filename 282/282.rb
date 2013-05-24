@@ -15,13 +15,13 @@ get "/contact_us" do
   erb(:contact_us)
 end
 
-get "/tutorials/ruby" do
+get "/tutorials/ruby_tutorial" do
   @title = "Ruby Tutorial"
   erb(:ruby_tutorial)
 end
 
-get "/tutorials/javascript" do
+get "/tutorials/java_tutorial" do
   @title = "JavaScript Tutorial"
-  erb(:javascript_tutorial)
+  erb(:java_tutorial)
 end
 
