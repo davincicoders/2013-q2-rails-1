@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <h1>List of fruits</h1>
+    <form method="POST" action="/fruits">
+      <table border="1">
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>image filename</th>
+          <th>USD per lb.</th>
+          <th>created at</th>
+          <th>updated at </th>
+          <th>actions</th>
+        </tr>
+        <% for fruit in @fruits %>
+          <tr>
+            <td><%= fruit.id %></td>
+            <td>
+              <a href="/fruit/<%= fruit.name %>">
+                <%= fruit.name %>
+              </a>
+            </td>
+            <td>
+              <img src="/images/<%= fruit.image_filename %>"><br>
+              <%= fruit.image_filename %>
+            </td>
+            <td align="right"><%= sprintf("$%.2f", fruit.usd_per_lb) %></td>
+            <td><%= fruit.created_at %></td>
+            <td><%= fruit.updated_at %></td>
+            <td>
+              <button name="edit" value="<%= fruit.id %>">Edit</button>
+              <button name="delete" value="<%= fruit.id %>">Delete</button>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <button name="add_new" value="add_new">Add new</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
