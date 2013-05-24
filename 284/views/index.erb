@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <h1>List of books</h1>
+    <form method="POST" action="/books">
+      <table border="1">
+        <tr>
+          <th>id</th>
+          <th>authors</th>
+          <th>title</th>
+          <th>condition</th>
+          <th>loaned out</th>
+          <th>stars</th>
+          <th>actions</th>
+        </tr>
+        <% for book in @books %>
+          <tr>
+            <td><%= book.id %></td>
+            <td><%= book.authors %></td>
+            <td>
+              <a href="/book/<%= book.title %>">
+                <%= book.title %>
+              </a>
+            </td>
+            <td><%= book.condition %></td>
+            <td><%= book.is_loaned_out %></td>
+            <td><%= book.stars %></td>
+            <td>
+              <a href="/book/<%= book.id %>">Edit</a>
+              <button name="delete" value="<%= book.id %>">Delete</button>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="/book/new">Add new</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
