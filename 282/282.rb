@@ -22,6 +22,10 @@ end
 
 get "/tutorials/java_tutorial" do
   @title = "JavaScript Tutorial"
+<<<<<<< HEAD
   erb(:java_tutorial)
+=======
+  erb(:js_tutorial)
+>>>>>>> 0ab4d19cefa2a4fda11c0dac7316b39f5a698c5c
 end
 
