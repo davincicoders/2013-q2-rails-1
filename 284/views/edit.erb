@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <% if @book.new_record? %>
+      <h1>Add book</h1>
+    <% else %>
+      <h1>Edit book</h1>
+    <% end %>
+
+    <% if @book.id == nil
+      action = "/book/new"
+    else
+      action = "/book/#{@book.id}"
+    end %>
+
+    <form method="POST" action="<%= action %>">
+      Authors<br>
+      <input type="text" name="authors"><br>
+      <br>
+  
+      Title<br>
+      <input type="text" name="title"><br>
+      <br>
+  
+      Condition<br>
+      <input type="radio" name="condition" value="perfect">perfect
+      <input type="radio" name="condition" value="good">good
+      <input type="radio" name="condition" value="fair">fair
+      <br>
+      <br>
+
+      Stars<br>
+      <select name="stars">
+        <option></option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <br>
+      <br>
+  
+      Is loaned out<br>
+      <input type="checkbox" name="is_loaned_out" value="1">
+      <br>
+      <br>
+
+      <button>Update</button>
+    </form>
+  </body>
+</html>
