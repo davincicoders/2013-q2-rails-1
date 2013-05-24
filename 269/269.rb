@@ -7,3 +7,7 @@ register SinatraMore::MarkupPlugin
 get("/") do
   halt erb(:form)
 end
+
+post ("/") do
+	halt erb(:form)
+end

@@ -1,8 +1,27 @@
 <html>
   <head>
-    <!-- fill this in -->
+    <style>
+      label[for=first_name],
+      label[for=password],
+      label[for=message],
+      label[for=gender],
+      label[for=card_type] {
+        width: 100px;
+        float: left;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
   </head>
   <body>
-    <!-- fill this in -->
+    <% form_tag("/") do %>
+      <%= label_tag "first_name", caption: "First name" %>
+      <%= text_field_tag "first_name", id: "first_name", value: "Jill" %>
+      <br>
+
+    <% end %>
   </body>
 </html>

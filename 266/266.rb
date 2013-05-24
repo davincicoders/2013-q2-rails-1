@@ -19,8 +19,3 @@ get ("/order/:order_num") do
 	halt 404, "Order not found"
 	end
 end
-# get("/order/:order_id") do
-#   order_id = params["order_id"]
-#   @order = G197Order.where(id: order_id).first
-#   halt erb(:order)
-# end

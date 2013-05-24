@@ -9,11 +9,8 @@ first_name = readline.chomp
 # If you can't find an actor, print something like:
 # Sorry, __ was not found.
 
-actor = Actor.where(first_name: first_name).first
+actors = Actor.where(first_name: first_name)
 
- 
-if actor == nil
-  puts "Sorry, #{first_name} was not found."
-else
+ actors.each do |actor|
   puts "#{first_name}'s last name is #{actor.last_name}."
 end

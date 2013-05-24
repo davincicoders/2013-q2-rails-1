@@ -6,15 +6,12 @@ require './connect_to_db.rb'
 
 Cat.destroy_all # start with this, so there are only three cats at most
 
-Fluffy = Cat.new
-Fluffy.name = "Fluffy"
-Fluffy.location = "in a box"
-Fluffy.save
-Furry = Cat.new
-Furry.name = "Furry"
-Furry.location = "in a box"
-Furry.save
-Felix = Cat.new
-Felix.name = "Felix"
-Felix.location = "in a box"
-Felix.save
+puts "Enter name"
+name = readline.chomp
+
+if name ==""
+	puts "please enter a name "
+	name = readline.chomp
+else
+new_cat = Cat.create(name: "#{name}")
+end

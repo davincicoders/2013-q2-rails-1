@@ -10,7 +10,10 @@ movie_title = readline.chomp
 # Otherwise, print out the first and last name of each actor.
 
 
-movie = Movie.where(title: movie_title).first
+l = Location.where(["id = ?", id]).select("name, website, city").first
+
+
+movie = Movie.where()(title: movie_title).first
 
 if movie == nil
   puts "Sorry, #{movie_title} was not found."

@@ -1,6 +1,6 @@
-drop table if exists g198_collectibles;
+	drop table if exists g198_collectibles;
 
-create table g198_collectibles (
+	create table g198_collectibles (
   id                integer not null,
   name              varchar(100) not null,
   description       varchar(100),

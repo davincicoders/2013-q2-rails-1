@@ -23,11 +23,12 @@ post("/handle_post") do
   order.total_order = total_cost.round(2)
 
   order.save!
-
+ @title = "Thank you for the order"
   halt erb(:thank_you)
 end
 
 get("/orders") do
+  @title = "Order placed"
   @orders = SubOrder.all
   halt erb(:sub_orders)
 end

@@ -10,7 +10,7 @@ end
 
 post("/post_handler") do
   submission = SubOrder.new 
-  submission.sandwich_type = params["sandwich_type" ]
+  submission.sandwich_type = params["sandwich_type"]
   submission.bread_type = params["bread_type"]
   submission.want_12_inch = (params["want_12_inch"] != nil)
   submission.want_extra_cheese = (params["want_extra_cheese"] != nil)
