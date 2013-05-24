@@ -1,0 +1,42 @@
+<html>
+  <body>
+    <% if @fruit.errors.size > 0 %>
+      Errors:
+      <ul>
+      <% for error in @fruit.errors.full_messages %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+
+    <% if @fruit.new_record? %>
+      <h1>Add fruit</h1>
+    <% else %>
+      <h1>Edit fruit</h1>
+    <% end %>
+
+    <% if @fruit.id == nil
+      action = "/fruit/new"
+    else
+      action = "/fruit/#{@fruit.name}"
+    end %>
+
+    <form method="POST" action="<%= action %>">
+      Name<br>
+      <input type="text" name="name" value="<%= @fruit.name %>"/><br>
+      <br>
+  
+      Image filename<br>
+      <input type="text" name="image_filename"
+        value="<%= @fruit.image_filename %>"/><br>
+      <br>
+  
+      USD per lb<br>
+      <input type="text" name="usd_per_lb"
+        value="<%= @fruit.usd_per_lb %>"/><br>
+      <br>
+  
+      <button>Update</button>
+    </form>
+  </body>
+</html>
