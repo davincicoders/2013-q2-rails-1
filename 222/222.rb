@@ -6,3 +6,9 @@ end
 # TODO: Felix has been given away to a friend, so delete the record for him.
 # If there's no Felix record found, just do nothing; there shouldn't be an
 # error.
+
+cat = Cat.where(name: "Felix").first
+if cat != nil
+cat.destroy
+else
+end

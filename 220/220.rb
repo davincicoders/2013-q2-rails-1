@@ -5,3 +5,10 @@ require './connect_to_db.rb'
 # Their starting location should all be "in a box."
 
 Cat.destroy_all # start with this, so there are only three cats at most
+
+location = "in a box"
+
+Cat.create(name: "Fluffy", location: location)
+Cat.create(name: "Furry", location: location)
+Cat.create(name: "Felix", location: location)
+

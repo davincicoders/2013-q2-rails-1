@@ -1,7 +1,7 @@
 <html>
   <body>
     <h1>Orders</h1>
-    <table border="1">
+    <table border='1'>
       <tr>
         <th>ID</th>
         <th>Customer</th>
@@ -10,7 +10,7 @@
         <th>Payment method</th>
         <th>Product names</th>
       </tr>
-      <% for order in @orders %>
+      <% for order in @orders %>/
         <tr>
           <td>
             <a href="/order/<%= order.id %>">

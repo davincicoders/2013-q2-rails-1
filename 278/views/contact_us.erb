@@ -10,27 +10,29 @@
   <body>
     <h1>Contact Us</h1>
 
+<p><%= error_messages_for @comment, header_message: "Please fill out the following:" %><p>
+
     <% form_tag "/contact_us" do %>
       <p>* = required fields</p>
 
       <label for="name">* Your Name:</label>
-      <%= text_field_tag "name", id: "name" %>
+      <%= text_field_tag "name", id: "name", value: @comment.name %>
       <br>
 
       <label for="email">* Email:</label>
-      <%= text_field_tag "email", id: "email" %>
+      <%= text_field_tag "email", id: "email", value: @comment.email %>
       <br>
 
       <label for="web_site">Web site:</label>
-      <%= text_field_tag "web_site", id: "web_site" %>
+      <%= text_field_tag "web_site", id: "web_site", value: @comment.web_site %>
       <br>
 
-      <label for="web_site">Country:</label>
-      <%= text_field_tag "country", id: "country" %>
+      <label for="country">Country:</label>
+      <%= text_field_tag "country", id: "country", value: @comment.country  %>
       <br>
 
       <label for="comments">* Comments/suggestions:</label>
-      <%= text_area_tag "comments", id: "comments" %>
+      <%= text_area_tag "comments", id: "comments", value: @comment.comments %>
       <br>
 
       <button>Submit</button>

@@ -11,20 +11,25 @@ get "/" do
 end
 
 get "/contact_us" do
+  @comment = ContactUsComment.new
+  
   halt erb(:contact_us)
 end
 
 post "/contact_us" do
-  comment          = ContactUsComment.new
-  comment.name     = params["name"]
-  comment.email    = params["email"]
-  comment.web_site = params["web_site"]
-  comment.country  = params["country"]
-  comment.comments = params["comments"]
+  @comment          = ContactUsComment.new
+  @comment.name     = params["name"]
+  @comment.email    = params["email"]
+  @comment.web_site = params["web_site"]
+  @comment.country  = params["country"]
+  @comment.comments = params["comments"]
 
-  comment.save!
-
-  redirect "/thank_you"
+  if @comment.save
+    redirect "/thank_you"
+  else 
+   halt erb(:contact_us)
+      end
+    
 end
 
 get "/thank_you"  do

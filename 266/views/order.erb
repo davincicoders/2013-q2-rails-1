@@ -1,7 +1,17 @@
 <html>
   <body>
-    <h1>Order <%= @order.id %></h1>
-    <!-- TODO: adapt the rest of order-mock-up.html so it reads its values
-         from the database instead of having hard-coded values -->
+    <h1><a href="/orders"> Order </a><%= @order_no.id %> </h1>
+      <ul>
+        <li> <b>Customer: </b><%= "#{@order_no.g197_customer.first_name} #{@order_no.g197_customer.last_name}" %> </li>
+        <li> <b>Sales Rep: </b><%= "#{@order_no.g197_sales_rep.first_name} #{@order_no.g197_sales_rep.last_name}" %> </li>
+        <li> <b>Date Received: </b><%= @order_no.date_received %> </li>
+        <li> <b>Payment Method: </b><%= @order_no.payment_method %> </li>
+        <li> <b>Products: </b> 
+            <ul>
+              <% for item in @order_no.g197_order_items %> 
+              <li>  <%= item.g197_product.name %> </li>
+              <% end %> 
+            </ul>
+      </ul>
   </body>
 </html>

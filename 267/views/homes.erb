@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <h1> Real Estate for Sale</h1> 
+    <table>
+      <tr>
+        <%for house in @houses%>
+        <th><img src="<%= house.image_url%>" width = "200" height = "200"/> </th>   
+        <%end%>
+      </tr>
+      <tr>
+        <%for house in @houses%>  
+        <th> <a href="/property/<%= house.address %>"> <%=house.address%> --- </a> <a href="/property/<%= house.address %>"> <%= house.price %> </a> </th>
+        <%end%>
+      </tr>
+    </table>
+  </body>
+</html>
+      
