@@ -1,8 +1,5 @@
 require 'active_record'
-require 'logger'
 
-#ActiveRecord::Base.logger = Logger.new(STDOUT)
-#ActiveRecord::Base.logger.formatter = proc { |sev, time, prog, msg| "#{msg}\n" }
 ActiveRecord::Base.establish_connection(
   host:     "localhost",
   adapter:  "postgresql",
@@ -10,5 +7,6 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-class ContactUsSubmission < ActiveRecord::Base
+class Property < ActiveRecord::Base
 end
+

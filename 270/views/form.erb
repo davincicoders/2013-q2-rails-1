@@ -1,8 +1,66 @@
 <html>
   <head>
-    <!-- fill this in -->
+    <meta charset="utf-8">
+    <title>Step 3: complex form input types</title>
   </head>
   <body>
-    <!-- fill this in -->
+  	<h1>My feedback form</h1>
+    <% form_tag("/") do %>
+    <ul>
+      <li>
+		  <%= label_tag "name", caption: "Name:" %>
+		  <%= text_field_tag "name", id: "name" %>
+      <li>
+		  <%= label_tag "email", caption: "Email:" %>
+		  <%= text_field_tag "email", id: "email" %>
+      <li>
+	      <%= label_tag "password", caption: "Password" %>
+	      <%= password_field_tag "password", id: "password" %>
+      <br>
+      <li>
+      	<div class='label-spacer'> Please check all the emotions that apply to you:</div>
+      	  <ul>
+      	  	<li>
+      	  	  <%= check_box_tag "angry", id: "angry", checked: true %>
+      	  	  <%= label_tag "angry", caption: "Angry" %>
+      	  	<li>
+      	  	  <%= check_box_tag "sad", id: "sad" %>
+      	  	  <%= label_tag "sad", caption: "Sad" %>
+      	  	<li>
+      	  	  <%= check_box_tag "happy", id: "happy" %>
+      	  	  <%= label_tag "happy", caption: "Happy" %>
+      	  	<li>
+      	  	  <%= check_box_tag "ambivalent", id: "ambivalent" %>
+      	  	  <%= label_tag "ambivalent", caption: "Ambivalent" %>
+      	  </ul>
+      	  <li>
+      	<div class='label-spacer'>How satisfied were you with our service?</div>
+		  	  <ul>
+		  	  	<li>
+		  	  	  <%= radio_button_tag "very satisfied", id: "very satisfied", value: "very satisfied", checked: true %>
+		  	  	  <%= label_tag "very satisfied", caption: "Very satisfied" %>
+		  	  	<li>
+		  	  	  <%= radio_button_tag "satisfied", id: "satisfied", value: "satisfied" %>
+		  	  	  <%= label_tag "satisfied", caption: "Satisfied" %>
+		  	  	<li>
+		  	  	  <%= radio_button_tag "didn't care", id: "didn't care", value: "didn't care" %>
+		  	  	  <%= label_tag "didn't care", caption: "Didn't care" %>
+		  	  	<li>
+		  	  	  <%= radio_button_tag "dissatisfied", id: "dissatisfied", value: "dissatisfied" %>
+		  	  	  <%= label_tag "dissatisfied", caption: "Dissatisfied" %>
+		  	  	<li>
+		  	  	  <%= radio_button_tag "very dissatisfied", id: "very dissatisfied", value: "very dissatisfied" %>
+		  	  	  <%= label_tag "very dissatisfied", caption: "Very dissatisfied" %>
+		  	  </ul>
+		  	<li>
+	  	      <%= label_tag "comments", caption: "Further comments:" %>
+	  	      <%= text_area_tag "comments", id: "comments", rows: 3, cols: 25 %>
+		  	<li>
+		  	  <%= label_tag "location visited", caption: "Location visited:" %>
+		  	  <%= select_tag "location visited", id: "location visited", 
+		  	  		options: ["Select location", "New York", "Vancouver", "Atlantis", "Alpha Centurai", "Blackpool", "Bognor Regis"] %>
+		  	<li>
+		  	  <input type="submit" value="Submit" /> 			
+    <% end %>
   </body>
 </html>

@@ -9,16 +9,20 @@
   </head>
   <body>
     <h1>Contact Us</h1>
+    
+    <%= error_messages_for @comment,
+        header_message: "Please fill out required fields:" %>
 
     <% form_tag "/contact_us" do %>
       <p>* = required fields</p>
 
       <label for="name">* Your Name:</label>
-      <%= text_field_tag "name", id: "name" %>
+      <%= text_field_tag "name", id: "name", value: @comment.name %>
+      <%= @comment.errors["name"].join %>
       <br>
 
       <label for="email">* Email:</label>
-      <%= text_field_tag "email", id: "email" %>
+      <%= text_field_tag "email", id: "email", value: @comment.email %>
       <br>
 
       <label for="web_site">Web site:</label>
@@ -30,7 +34,7 @@
       <br>
 
       <label for="comments">* Comments/suggestions:</label>
-      <%= text_area_tag "comments", id: "comments" %>
+      <%= text_area_tag "comments", id: "comments", value: @comment.comments %>
       <br>
 
       <button>Submit</button>

@@ -20,9 +20,9 @@
               <% for line_item in order.sushi_order_line_items %>
                 <li>
                   <%= line_item.sushi_dish.name %>
-                  @ $<%= sprintf("%.2f", line_item.sushi_dish.price || 0) %>
+                  @ $<%= "%.2f" % line_item.sushi_dish.price || 0 %>
                   x <%= line_item.quantity %> =
-                  $<%= sprintf("%.2f", line_item.line_price || 0) %>
+                  $<%= "%.2f" % line_item.line_price || 0 %>
                 </li>
               <% end %>
             </ul>
