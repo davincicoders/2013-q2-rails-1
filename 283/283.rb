@@ -5,7 +5,8 @@ require './connect_to_db.rb'
 register SinatraMore::MarkupPlugin
 
 get("/") do
-  halt erb(:order_form)
+  @title = "Sub sandwich order form"
+  halt erb(:order_form, layout: :layout)
 end
 
 post("/handle_post") do

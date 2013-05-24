@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
+require 'pry'
 
 register SinatraMore::MarkupPlugin
 
@@ -24,28 +25,31 @@ post("/handle_post") do
   #       Eventually you'll want to use a loop so that the
   #       chef can add new menu items without needing you to
   #       add Ruby code to support them.
-
-  tuna = SushiDish.where(name: "Tuna").first
-  squid = SushiDish.where(name: "Squid").first
+  #get quantity of each using params.
 
   order = SushiOrder.new
-  order.table_number = 17
-  order.total_price = 14.00 # 5.00 + 4.50 + 4.50 = 14.00
-  order.save!
+  order.total_price = 0.0
+  order.table_number = params["table_number"].to_i
 
-  line_item = SushiOrderLineItem.new
-  line_item.sushi_dish = tuna
-  line_item.sushi_order = order
-  line_item.quantity = 1
-  line_item.line_price = 5.00 # $5.00 x 1 = $5.00
-  line_item.save!
-
-  line_item = SushiOrderLineItem.new
-  line_item.sushi_dish = squid
-  line_item.sushi_order = order
-  line_item.quantity = 2
-  line_item.line_price = 9.00 # $4.50 x 2 = $9.00
-  line_item.save!
+  order_counter = []
+  order_counter << params["quantity_for_dish_1"].to_i << params["quantity_for_dish_2"].to_i << params["quantity_for_dish_3"].to_i << params["quantity_for_dish_4"].to_i << params["quantity_for_dish_5"].to_i << params["quantity_for_dish_6"].to_i << params["quantity_for_dish_7"].to_i
+  i = 1
+  for o_O in order_counter
+    if o_O > 0
+      binding.pry
+      sd = SushiDish.where(id: i).first
+      order.total_price += (sd.price.to_f * o_O)
+      
+      line_item = SushiOrderLineItem.new
+      line_item.sushi_dish = sd
+      line_item.sushi_order = order
+      line_item.quantity = o_O
+      line_item.line_price = (sd.price * o_O)
+      line_item.save!
+    end
+    i += 1
+  end
+  order.save
 
   halt erb(:thank_you)
 end
