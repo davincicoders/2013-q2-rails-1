@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+
+gem 'pry'
+gem 'pry-debugger'
+gem 'pry-doc'
+gem 'pg'
+
+gem 'activerecord'
