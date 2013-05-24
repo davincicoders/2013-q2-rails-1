@@ -1,0 +1,21 @@
+<html>
+<body>
+
+<img src="<%= @property.image_url %>" width="500" height="375">
+
+<h1>
+  <%= @property.address %>,
+  <%= @property.city %>,
+  <%= @property.state %>
+</h1>
+<h2><%= @property.price %></h2>
+
+<p>
+  <b>Bedrooms</b>: <%= @property.num_bedrooms %>
+<p>
+  <b>Stories:</b> <%= @property.num_stories %>
+<p>
+  <b>Square feet:</b> <%= @property.num_square_feet %>
+
+</body>
+</html>

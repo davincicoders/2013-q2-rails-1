@@ -9,7 +9,8 @@
   </head>
   <body>
     <h1>Contact Us</h1>
-
+      <%= error_messages_for @comment, 
+        header_message: "Dafuq?!" %>
     <% form_tag "/contact_us" do %>
       <p>* = required fields</p>
 

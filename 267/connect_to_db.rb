@@ -10,7 +10,5 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-# TODO: define an Active Record class here
-
-class ContactUsSubmission < ActiveRecord::Base
+class Property < ActiveRecord::Base
 end

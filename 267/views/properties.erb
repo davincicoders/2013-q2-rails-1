@@ -1,0 +1,22 @@
+<html>
+<body bgcolor="#313375">
+
+<h1>Real Estate for sale</h1>
+<% for property in @properties %>
+  <div style="float:left;margin-right:30px">
+    <a href="/property/<%= property.id %>">
+      <img src="<%= property.image_url %>" width="250" height="188">
+    </a>
+    <br>
+    <div style="float:right">
+      <a href="/property/<%= property.id %>">
+        <%= property.price %>
+      </a>
+    </div>
+    <a href="/property/<%= property.id %>">
+      <%= property.address %>
+    </a>
+  </div>
+<% end %>
+</body>
+</html>

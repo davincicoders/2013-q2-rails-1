@@ -1,8 +1,8 @@
 <html>
-  <body>
+  <body bgcolor="#000088" link="#000000" vlink="#000000" alink="#000000" text="#FFFFFF">
     <h1>Orders</h1>
-    <table border="1">
-      <tr>
+    <table cellspacing=0>
+      <tr bgcolor="#0000AA">
         <th>ID</th>
         <th>Customer</th>
         <th>Sales rep</th>
@@ -11,7 +11,7 @@
         <th>Product names</th>
       </tr>
       <% for order in @orders %>
-        <tr>
+        <tr bgcolor="#0000CC">
           <td>
             <a href="/order/order<%= order.id %>">
               <%= order.id %>
