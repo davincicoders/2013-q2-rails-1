@@ -5,6 +5,7 @@ require './connect_to_db.rb'
 register SinatraMore::MarkupPlugin
 
 get("/") do
+  @title = "Order Form"
   halt erb(:order_form)
 end
 
@@ -23,11 +24,12 @@ post("/handle_post") do
   order.total_order = total_cost.round(2)
 
   order.save!
-
+  @title = "Order Placed"
   halt erb(:thank_you)
 end
 
 get("/orders") do
+  @title = "Orders"
   @orders = SubOrder.all
   halt erb(:sub_orders)
 end
