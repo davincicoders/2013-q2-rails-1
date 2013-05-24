@@ -22,6 +22,6 @@ end
 
 get "/tutorials/javascript" do
   @title = "JavaScript Tutorial"
-  erb(:javascript_tutorial)
+  erb(:js_tutorial)
 end
 
