@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-
-gem 'pg'
-gem 'pry-debugger'
-gem 'pry-doc'
-
 gem 'activerecord', '~> 3.2'
 gem 'activerecord-postgresql-adapter'
+
+gem 'sinatra'
+gem 'sinatra_more'
