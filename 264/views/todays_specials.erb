@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <h1>Today's specials are</h1>
+    <% for special in @specials %>
+      <img src="<%= special.filename %>" />
+      <p><%= special.name %> for <%= special.price %></p>
+    <% end %>
+  </body>
+</html>
+

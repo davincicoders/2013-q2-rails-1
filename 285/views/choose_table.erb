@@ -1,0 +1,31 @@
+<h1>Choose a table</h1>
+
+<div id='tables'>
+  <% for table in RestaurantTable.order("id") %>
+    <% class_ = "table"
+    for order in table.restaurant_orders
+      if order.is_closed == false
+        class_ += " occupied"
+      end
+    end %>
+    <div class='<%= class_ %>' id='t<%= table.id %>'>
+      <a href='/table/<%= table.id %>'><%= table.id %></a>
+      <div style='position:relative'>
+        <% if table.id < 9 %>
+          <div class='chair west'></div>
+          <div class='chair east'></div>
+        <% end %>
+        <% if table.id >= 8 && table.id <= 10 %>
+          <div class='chair north'></div>
+          <div class='chair south'></div>
+        <% end %>
+        <% if table.id >= 10 %>
+          <div class='chair west'></div>
+          <div class='chair east'></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div id='divider1'></div>
+  <div id='divider2'></div>
+</div>
