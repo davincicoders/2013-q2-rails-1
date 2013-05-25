@@ -32,7 +32,6 @@ post "/login" do
 end
 
 get "/accounts" do
-raise
   halt erb(:accounts)
 end
 
