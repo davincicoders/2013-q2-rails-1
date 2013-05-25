@@ -1,0 +1,14 @@
+<h1>Accounts</h1>
+
+<table border="1">
+  <tr>
+    <th>type</th>
+    <th>balance</th>
+  </tr>
+  <% for account in @bank_user.bank_accounts %>
+    <tr>
+      <td><%= account.account_type %></td>
+      <td><%= sprintf("%.2f", account.current_balance) %></td>
+    </tr>
+  <% end %>
+</table>
