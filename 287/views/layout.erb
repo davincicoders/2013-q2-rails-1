@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <div style="float:right">Welcome <%= @bank_user.first_name %>!</div>
+    <a href="/accounts">accounts</a>
+    <a href="/location">location</a>
+    <a href="/rates">rates</a>
+    <a href="/logout">logout</a>
+    <hr/>
+
+    <%= yield %>
+  </body>
+</html>
