@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Garden plots</title>
+  </head>
+  <body>
+    <h1>Garden plots</h1>
+
+    <form method="post" action="/plots">
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Seed type</th>
+          <th>Planted year</th>
+          <th>Planted month</th>
+          <th>Planted day</th>
+          <th>Is unused</th>
+          <th>Created at</th>
+          <th>Updated at</th>
+          <th>Actions</th>
+        </tr>
+        <% for plot in @plots %>
+          <tr>
+            <td><%= plot.id %></td>
+            <td><%= plot.seed_type %></td>
+            <td><%= plot.planted_year %></td>
+            <td><%= plot.planted_month %></td>
+            <td><%= plot.planted_day %></td>
+            <td><%= plot.is_unused %></td>
+            <td><%= plot.created_at %></td>
+            <td><%= plot.updated_at %></td>
+            <td>
+              <a href="/plots/<%= plot.id %>">Edit</a>
+              <button name="plot_id_to_delete" value="<%= plot.id %>">
+                Delete
+              </button>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td><a href="/plots/new">Add new</a></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
