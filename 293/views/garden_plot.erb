@@ -18,6 +18,8 @@
   </head>
   <body>
     <h1><%= @title %></h1>
+    <%= error_messages_for @plot,
+        header_message: "Please fill out required fields:" %>
 
     <% if @plot.id == nil
       action = "/plots/new"

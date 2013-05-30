@@ -33,25 +33,25 @@ end
 
 post "/plots/:plot_id" do
   if params["plot_id"] == "new"
-    plot                  = GardenPlot.new
-    plot.seed_type        = params["seed_type"]
-    plot.planted_year     = params["planted_year"]
-    plot.planted_month    = params["planted_month"]
-    plot.planted_day      = params["planted_day"]
-    plot.is_unused        = (params["is_unused"] != nil)
-    if plot.save
+    @plot                  = GardenPlot.new
+    @plot.seed_type        = params["seed_type"]
+    @plot.planted_year     = params["planted_year"]
+    @plot.planted_month    = params["planted_month"]
+    @plot.planted_day      = params["planted_day"]
+    @plot.is_unused        = (params["is_unused"] != nil)
+    if @plot.save
       redirect "/plots"
     else
       halt erb(:garden_plot)
     end
   else
-    plot                  = GardenPlot.where(id: params["plot_id"]).first
-    plot.seed_type        = params["seed_type"]
-    plot.planted_year     = params["planted_year"]
-    plot.planted_month    = params["planted_month"]
-    plot.planted_day      = params["planted_day"]
-    plot.is_unused        = (params["is_unused"] != nil)
-    if plot.save
+    @plot                  = GardenPlot.where(id: params["plot_id"]).first
+    @plot.seed_type        = params["seed_type"]
+    @plot.planted_year     = params["planted_year"]
+    @plot.planted_month    = params["planted_month"]
+    @plot.planted_day      = params["planted_day"]
+    @plot.is_unused        = (params["is_unused"] != nil)
+    if @plot.save
       redirect "/plots"
     else
       halt erb(:garden_plot)
