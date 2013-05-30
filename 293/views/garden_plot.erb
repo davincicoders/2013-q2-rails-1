@@ -5,21 +5,14 @@
         width: 130px;
         float: left;
       }
-      label[for=is_unused] {
-        float: none;
-      }
-      .label-spacer {
-        width: 130px;
-        height: 1px;
-        float: left;
-      }
+
     </style>
   </head>
   <body>
     <% if @plot.new_record? %>
-      <h1>Add Plot</h1>
+      <h1>Add Garden Plot</h1>
     <% else %>
-      <h1>Edit Plot</h1>
+      <h1>Edit Garden Plot</h1>
     <% end %>
     
     <% if @plot.id == nil
@@ -30,11 +23,9 @@
       
       * Required fields
       <br>
+      <%= error_messages_for @plot, header_message: "Please complete the required fields:" %>
       <br>
     <form method="POST" action="<%= action %>">
-
-      
-      <%= error_messages_for @plot, header_message: "Please fill out the required fields:" %>
 
       <%= label_tag "seed_type", caption: "Seed Type *" %>
       <%= text_field_tag "seed_type", id: "seed_type", value: @plot.seed_type %>
@@ -53,14 +44,14 @@
 
       <br>
      
-     <%= label_tag "planted_day", caption: "Planted Day *" %>
-     <%= text_field_tag "planted_day", id: "planted_day", value: @plot.planted_day %>
-     
+      <%= label_tag "planted_day", caption: "Planted Day *" %>
+      <%= text_field_tag "planted_day", id: "planted_day", value: @plot.planted_day %>
+
       <br>
 
-      <div class='label-spacer'>&nbsp;</div>
-      <%= check_box_tag "is_unused", id: @plot.is_unused, checked: @plot.is_unused %>
       <%= label_tag "is_unused", caption: "Is Unused" %>
+      <%= check_box_tag "is_unused", id: @plot.is_unused, checked: @plot.is_unused %>
+
 
       <br>
 
