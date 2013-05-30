@@ -5,7 +5,7 @@
   <body>
     <h1>Garden plots</h1>
 
-    <form method="post" action="/plots">
+    <form method="POST" action="/plots">
       <table border="1">
         <tr>
           <th>ID</th>
@@ -29,15 +29,13 @@
             <td><%= plot.created_at %></td>
             <td><%= plot.updated_at %></td>
             <td>
-              <a href="/plots/<%= plot.id %>">Edit</a>
-              <button name="plot_id_to_delete" value="<%= plot.id %>">
-                Delete
-              </button>
+              <button name="edit" value="<%= plot.id %>">Edit</button>
+              <button name="delete" value="<%= plot.id %>">Delete</button>
             </td>
           </tr>
         <% end %>
         <tr>
-          <td><a href="/plots/new">Add new</a></td>
+          <td><button name="add_new" value="add_new">Add New</button></td>
         </tr>
       </table>
     </form>
