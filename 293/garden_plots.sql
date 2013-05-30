@@ -6,7 +6,7 @@ create table garden_plots (
   planted_year      integer,
   planted_month     varchar(3),
   planted_day       integer,
-  is_unused         boolean,
+  is_unused         boolean not null,
   created_at        timestamp,
   updated_at        timestamp,
   primary key (id)
