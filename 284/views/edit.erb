@@ -1,5 +1,7 @@
 <html>
   <body>
+
+  
     <% if @book.new_record? %>
       <h1>Add book</h1>
     <% else %>
@@ -13,35 +15,41 @@
     end %>
 
     <form method="POST" action="<%= action %>">
-      Authors<br>
-      <input type="text" name="authors"><br>
+    
+      <br>
+      <%= label_tag "authors", caption: "Authors" %>
+      <%= text_field_tag "authors", id: "authors", value: @book.authors %>
+      <br>
       <br>
   
-      Title<br>
-      <input type="text" name="title"><br>
+      <%= label_tag "title", caption: "Title" %>
+      <%= text_field_tag "title", id: "title", value: @book.title %>
       <br>
-  
-      Condition<br>
-      <input type="radio" name="condition" value="perfect">perfect
-      <input type="radio" name="condition" value="good">good
-      <input type="radio" name="condition" value="fair">fair
+      <br>
+      
+      <%= label_tag "condition", caption: "Condition" %><br>
+      <%= radio_button_tag "condition", id: "condition_perfect",
+        value: "perfect", checked: @book.condition == "perfect" %>
+      Perfect
+      <%= radio_button_tag "condition", id: "condition_good",
+        value: "good", checked: @book.condition == "good" %>
+      Good
+      <%= radio_button_tag "condition", id: "condition_fair",
+        value: "fair", checked: @book.condition == "fair" %>
+      Fair
       <br>
       <br>
 
-      Stars<br>
-      <select name="stars">
-        <option></option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <%= label_tag "stars", caption: "Stars" %>
+      <%= select_tag "stars", id: "stars",
+        options: ["", "1", "2", "3", "4", "5"], 
+        selected: @book.stars %>
+
       <br>
       <br>
-  
-      Is loaned out<br>
-      <input type="checkbox" name="is_loaned_out" value="1">
+      <div class='label-spacer'></div>
+      <%= check_box_tag "is_loaned_out", id: "@book.is_loaned_out", checked: @book.is_loaned_out %>
+      <%= label_tag "is_loaned_out", caption: "Is loaned out" %>
       <br>
       <br>
 
