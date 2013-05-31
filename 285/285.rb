@@ -34,7 +34,7 @@ post("/table/:table_id") do
     end
   elsif params["action"] == "add_item_to_order"
     @item = OrderedMenuItem.new
-    @item.restaurant_order_id = @order.id
+    @item.restaurant_order_id = order.id
     @item.menu_item_id = params["menu_item_id"]
     @item.chair_number = params["chair_number"]
     if @item.save
