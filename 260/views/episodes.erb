@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Episodes</h1>
-    <table border='1'>
+    <table border='3'>
       <tr>
         <th>id</th>
         <th>name</th>
@@ -20,7 +20,7 @@
           <td><%= episode.name %></td>
           <td>
             <ul>
-              <% for collectible in episode.g198_collectibles %>
+            <% for collectible in episode.g198_collectibles %>
                 <li><%= collectible.name %></li>
               <% end %>
             </ul>

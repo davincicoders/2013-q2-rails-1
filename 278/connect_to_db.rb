@@ -11,4 +11,5 @@ ActiveRecord::Base.establish_connection(
   database: "postgres")
 
 class ContactUsComment < ActiveRecord::Base
+  validates_presence_of :first_name
 end

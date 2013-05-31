@@ -1,7 +1,7 @@
 require 'sinatra'
-
 get("/page1") do
   @page_number = 1
+  @first_name = "Jack"
   halt erb(:page)
 end
 

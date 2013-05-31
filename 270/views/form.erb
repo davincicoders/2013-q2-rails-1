@@ -1,8 +1,95 @@
 <html>
   <head>
     <!-- fill this in -->
+     <style>
+      label[for=first_name],
+      label[for=password],
+      label[for=password],
+      label[for=gender], {
+        width: 115px;
+        float: left;
+      }
+      .label-spacer {
+        width: 100px;
+        height: 1px;
+        float: left;
+      }
+    </style>
   </head>
   <body>
     <!-- fill this in -->
+    <h1> My feedback form </h1>
+    <ul>
+      <li>
+         <% form_tag("/") do %>
+         <%= label_tag "name", caption: "Name" %>
+         <%= text_field_tag "name", id: "name", value: "" %>
+      </li>
+      <li>
+         <%= label_tag "email", caption: "Email" %>
+         <%= text_field_tag "email", id: "email", value: "" %>	
+      </li>
+      <li>
+         <%= label_tag "password", caption: "Password" %>
+         <%= text_field_tag "password", id: "password", value: "secret" %>
+      </li>
+      <li>
+      <p>Please check all the emotions that apply to you:</p>
+         <ul>
+            <li>
+               <%= check_box_tag "angry", id: "angry", checked: true %>
+               <%= label_tag "angry", caption: "Angry" %>
+            </li>
+            <li>
+               <%= check_box_tag "sad", id: "sad", checked: true %>
+               <%= label_tag "sad", caption: "Sad" %>
+            </li>
+            <li>
+               <%= check_box_tag "happy", id: "happy", checked: true %>
+               <%= label_tag "happy", caption: "Happy" %>
+            </li>
+            <li>
+               <%= check_box_tag "ambivalent", id: "ambivalent", checked: true %>
+               <%= label_tag "ambivalent", caption: "Ambivalent" %>
+            </li>
+      </ul>
+      
+  		<li>
+  			<p>How satisfied were you with our service?</p>
+         <ul>
+      			<li>
+      			<%= label_tag "gender", caption: "Very satisfied" %>
+      				<%= radio_button_tag "gender", id: "gender_female", value: "female",
+            			checked: "male" == "female" %>
+         		</li>
+         		<li>
+      				<%= label_tag "gender", caption: "Satisfied" %>
+      				<%= radio_button_tag "gender", id: "gender_female", value: "female",
+            			checked: "male" == "female" %>
+            </li>
+            <li>
+      				<%= label_tag "gender", caption: "Didn\'t care" %>
+      				<%= radio_button_tag "gender", id: "gender_female", value: "female",
+            			checked: "male" == "female" %>
+            </li>
+            <li>
+      				<%= label_tag "gender", caption: "Dissatisfied" %>
+      				<%= radio_button_tag "gender", id: "gender_female", value: "female",
+            			checked: "male" == "female" %>
+            </li>
+            <li>
+      				<%= label_tag "gender", caption: "Very dissatisfied" %>
+      				<%= radio_button_tag "gender", id: "gender_female", value: "female",
+            			checked: "male" == "female" %>
+            </li>
+            <li>
+      				<%= label_tag "further_comments", caption: "Further comments:" %>  
+      				<%= text_area_tag "further_comments", id: "further_comments", value: "",
+      						rows: 3, cols: 25 %>
+      			</li>
+      	</ul>
+    
+         <% end %>	
+    </ul>
   </body>
 </html>

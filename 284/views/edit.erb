@@ -13,14 +13,14 @@
     end %>
 
     <form method="POST" action="<%= action %>">
-      Authors<br>
-      <input type="text" name="authors"><br>
+      <%= label_tag "authors", caption: "Authors" %>
+      <%= text_field_tag "authors", id: "authors", value: @book.authors %>
       <br>
   
-      Title<br>
-      <input type="text" name="title"><br>
-      <br>
-  
+			<%= label_tag "title", caption: "Title" %>
+			<%= text_field_tag "title", id: "title", value: @book.title, size: 75%> 
+			<br>	 
+			
       Condition<br>
       <input type="radio" name="condition" value="perfect">perfect
       <input type="radio" name="condition" value="good">good

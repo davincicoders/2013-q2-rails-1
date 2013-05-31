@@ -20,6 +20,7 @@ post "/plots" do
 end
 
 get "/plots/:plot_id" do
+raise HERE
   # TODO: set @title to Create New Plot or Edit Plot, depending on plot_id
   # TODO: find @plot (based on plot_id, which could be new)
   halt erb(:garden_plot)

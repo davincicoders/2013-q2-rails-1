@@ -3,6 +3,21 @@
     <h1>U.S. Cities</h1>
 
     <!-- TODO: create an HTML <table> here -->
+        <table border='1'>
+      <tr>
+        <th>name</th>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>time_zone</th>
+      </tr>
+      <% for city in @cities %>
+        <tr>
+          <td style="color:<%=color.code%>"><%= color.id %></td>
+          <td><%= city.name %></td>
+          <td><%= color.code %></td>
+        </tr>
+      <% end %>
+    </table>
 
   </body>
 </html>
