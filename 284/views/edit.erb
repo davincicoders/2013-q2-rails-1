@@ -1,5 +1,14 @@
 <html>
   <body>
+      <% if @book.errors.size > 0 %>
+      Errors:
+      <ul>
+      <% for error in @book.errors.full_messages %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+   
     <% if @book.new_record? %>
       <h1>Add book</h1>
     <% else %>
@@ -13,35 +22,40 @@
     end %>
 
     <form method="POST" action="<%= action %>">
-      Authors<br>
-      <input type="text" name="authors"><br>
+      
+      <%= label_tag :authors %><br>
+      <%= text_field_tag "authors", id: "authors", value: @book.authors, size: 100 %>
       <br>
   
-      Title<br>
-      <input type="text" name="title"><br>
-      <br>
-  
-      Condition<br>
-      <input type="radio" name="condition" value="perfect">perfect
-      <input type="radio" name="condition" value="good">good
-      <input type="radio" name="condition" value="fair">fair
-      <br>
+      <%= label_tag :title %><br>
+      <%= text_field_tag "title", id: "title", value: @book.title, size: 100 %>
       <br>
 
-      Stars<br>
-      <select name="stars">
-        <option></option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <br>
-      <br>
   
+      Condition<br>
+      Perfect
+      <%= radio_button_tag "condition", id: "condition_perfect", value: "perfect",
+      checked: @book.condition == "perfect" %>
+      Good
+      <%= radio_button_tag "condition", id: "condition_good", value: "good",
+      checked: @book.condition == "good" %>
+      
+      Fair
+      <%= radio_button_tag "condition", id: "condition_fair", value: "fair",
+      checked: @book.condition == "fair" %>
+      
+      <br>
+      <br>
+      
+		<%= label_tag "stars", caption: "Stars" %>
+		<%= select_tag "stars", id: "stars", 
+		options: ["", "1", "2", "3", "4", "5"], selected: @book.stars %>
+			
+      <br>
+			<br>  
       Is loaned out<br>
-      <input type="checkbox" name="is_loaned_out" value="1">
+			<%= check_box_tag "is_loaned_out", id: "is_loaned_out", checked: @book.is_loaned_out %>
+
       <br>
       <br>
 

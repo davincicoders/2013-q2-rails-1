@@ -17,9 +17,61 @@
     </style>
   </head>
   <body>
-    <h1><%= @title %></h1>
 
-    <!-- TODO: fill in the rest of the fields here -->
+  <h1><%= @title %></h1>
 
+   <% if @plot.errors.size > 0 %>
+      Errors:
+      <ul>
+      <% for error in @plot.errors.full_messages %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+   
+
+		<% if @plot.id != nil
+      action = "/plots/#{@plot.id}"
+    else
+      action = "/plots/new"
+    end %>
+
+    <form method="POST" action="<%= action %>">
+    
+    	<%= label_tag :seed_type %><br>
+      <%= text_field_tag "seed_type", id: "seed_type", value: @plot.seed_type %>
+      <br>
+    
+     2012
+      <%= radio_button_tag "planted_year", id: "planted_year_2012", value: "2012",
+      checked: @plot.planted_year == "2012" %> 
+
+     2013
+      <%= radio_button_tag "planted_year", id: "planted_year_2013", value: "2013",
+      checked: @plot.planted_year == "2013" %>
+      <br>
+
+	<%= label_tag "planted_month", caption: "Planted Month" %>
+		<%= select_tag "planted_month", id: "planted_month", 
+		options: ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+	    "Jul", "Aug", "Sep", "Nov", "Oct", "Dec"], selected: @plot.planted_month %>
+      <br>
+     
+     	<%= label_tag :planted_day %><br>
+      <%= text_field_tag "planted_day", id: "planted_day", value: @plot.planted_day %>
+      <br>
+    
+      <div class='label-spacer'>&nbsp;</div>
+    
+    	<br>  
+			<%= check_box_tag "is_unused", id: "is_unused", checked: @plot.is_unused %>
+      <label for="is_unused">Is unused</label>
+      <br>
+
+      <br>
+      <div class='label-spacer'></div>
+      <button >Save</button>
+      <br>
+    </form>
   </body>
 </html>

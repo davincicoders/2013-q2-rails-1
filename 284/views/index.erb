@@ -25,7 +25,7 @@
             <td><%= book.is_loaned_out %></td>
             <td><%= book.stars %></td>
             <td>
-              <a href="/book/<%= book.id %>">Edit</a>
+              <button name="edit" value="<%= book.id %>"> Edit</button>
               <button name="delete" value="<%= book.id %>">Delete</button>
             </td>
           </tr>
@@ -38,7 +38,7 @@
           <td></td>
           <td></td>
           <td>
-            <a href="/book/new">Add new</a>
+            <button name="add_new" value="add_new" >Add new </button>
           </td>
         </tr>
       </table>

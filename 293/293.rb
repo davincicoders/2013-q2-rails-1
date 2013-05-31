@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
-
 register SinatraMore::MarkupPlugin
 after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
 
@@ -15,18 +14,40 @@ get "/plots" do
 end
 
 post "/plots" do
-  # TODO: if a garden plot was deleted, delete it
-  redirect "/plots"
+	if params["delete"]
+		plot_id = params["delete"]
+		plot = GardenPlot.where(id: plot_id).first
+		plot.destroy 
+  end
 end
 
 get "/plots/:plot_id" do
-  # TODO: set @title to Create New Plot or Edit Plot, depending on plot_id
-  # TODO: find @plot (based on plot_id, which could be new)
+  if params["plot_id"] == "new"
+    @title = "Create new plot"
+    @plot = GardenPlot.new
+  else
+    @title = "Edit plot"
+    @plot = GardenPlot.where(id: params["plot_id"]).first
+  end
   halt erb(:garden_plot)
 end
 
 post "/plots/:plot_id" do
-  # TODO: find @plot (based on plot_id, which could be new)
-  # TODO: set fields on @plot based on the form params
-  # TODO: attempt to save, then either redirect or show the form with errors
+  if params["plot_id"] == "new"
+    @plot = GardenPlot.new
+  else
+    @plot = GardenPlot.where(id: params["plot_id"]).first
+  end
+
+  @plot.seed_type = params["seed_type"]
+  @plot.planted_year = params["planted_year"]
+  @plot.planted_month = params["planted_month"]
+  @plot.planted_day = params["planted_day"]
+  @plot.is_unused = params["is_unused"]
+
+  if @plot.save
+    redirect "/plots"
+  else
+    halt erb(:garden_plot)
+  end
 end

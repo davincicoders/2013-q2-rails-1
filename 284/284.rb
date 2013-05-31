@@ -16,7 +16,18 @@ get "/books" do
 end
 
 post "/books" do
-  # TODO: handle edit, delete, or add_new
+	if params["edit"]
+		book_id = params["edit"]
+		book = Book.where(id: book_id).first
+		redirect "/book/#{book.id}"
+	elsif params["delete"]
+		book_id = params["delete"]
+		book = Book.where(id: book_id).first
+		book.destroy
+		redirect "books"	
+	elsif params["add_new"]
+		redirect "/book/new"
+	end
 end
 
 get "/book/:book_id" do
@@ -29,6 +40,31 @@ get "/book/:book_id" do
 end
 
 post "/book/:book_id" do
-  # TODO: handle create or update
-end
+  if params["book_id"] == "new"
+		@book	= Book.new
+		@book.authors = params["authors"]
+		@book.title = params["title"]
+		@book.condition = params["condition"]
+		@book.stars = params["stars"]
+		@book.is_loaned_out = (params["is_loaned_out"] != nil)
+		if @book.save
+			redirect "/books"
+		else
+			halt erb(:edit)
+		end
+	else
+		@book	= Book.where(id: params["book_id"]).first
+		@book.authors = params["authors"]
+		@book.title = params["title"]
+		@book.condition = params["condition"]
+		@book.stars = params["stars"]
+		@book.is_loaned_out = (params["is_loaned_out"] != nil)
 
+		if @book.save
+			redirect "/books"
+		else
+			halt erb(:edit)
+		end
+	end
+end
+    
