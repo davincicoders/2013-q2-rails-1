@@ -42,7 +42,7 @@ post "/plots/:plot_id" do
   # TODO: set fields on @plot based on the form params
   # TODO: attempt to save, then either redirect or show the form with errors
     if params["plot_id"] == "new"
-    @plot = GardenPlot.new
+  @plot = GardenPlot.new
   else
     @plot = GardenPlot.where(id: params["plot_id"]).first
   end
@@ -58,5 +58,3 @@ post "/plots/:plot_id" do
     halt erb(:edit)
   end
 end
-
-
