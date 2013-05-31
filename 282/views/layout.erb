@@ -1,16 +1,16 @@
 <html>
   <head>
     <title><%= @title %></title>
-    <link href="../stylesheets/application.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="about_us">About Us</a></li>
-      <li><a href="contact_us">Contact Us</a></li>
+      <li><a href="/about_us">About Us</a></li>
+      <li><a href="/contact_us">Contact Us</a></li>
       <li>Tutorials:<ul>
-        <li><a href="tutorials/ruby">Ruby</a></li>
-        <li><a href="tutorials/javascript">JavaScript</a></li>
+        <li><a href="/tutorials/ruby">Ruby</a></li>
+        <li><a href="/tutorials/javascript">JavaScript</a></li>
       </ul></li>
     </ul>
 
@@ -19,7 +19,7 @@
     <%= yield %>
 
     <p>
-      <img src="images/leaves.jpg" width="320" height="200">
+      <img src="/images/leaves.jpg" width="320" height="200">
     </p>
   </body>
 </html>
