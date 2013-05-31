@@ -1,5 +1,8 @@
 <html>
   <body>
+    <%= error_messages_for @book,
+        header_message: "Please fill out required fields:" %>
+
     <% if @book.new_record? %>
       <h1>Add book</h1>
     <% else %>
@@ -14,38 +17,45 @@
 
     <form method="POST" action="<%= action %>">
       Authors<br>
-      <input type="text" name="authors"><br>
+      <input type="text" name="authors" value="<%= @book.authors %>" size="45"><br>
       <br>
   
       Title<br>
-      <input type="text" name="title"><br>
+      <input type="text" name="title" value="<%= @book.title %>" size="45"><br>
       <br>
   
       Condition<br>
-      <input type="radio" name="condition" value="perfect">perfect
-      <input type="radio" name="condition" value="good">good
-      <input type="radio" name="condition" value="fair">fair
+      <input type="radio" name="condition" value="perfect"
+      <% if @book.condition == "perfect" %> checked <%end%>>perfect
+      <input type="radio" name="condition" value="good"
+      <% if @book.condition == "good" %> checked <%end%>>good
+      <input type="radio" name="condition" value="fair"
+      <% if @book.condition == "fair" %> checked <%end%>>fair
       <br>
       <br>
 
       Stars<br>
       <select name="stars">
         <option></option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option<% if @book.stars == 1 %> selected <% end %>>1</option>
+        <option<% if @book.stars == 2 %> selected <% end %>>2</option>
+        <option<% if @book.stars == 3 %> selected <% end %>>3</option>
+        <option<% if @book.stars == 4 %> selected <% end %>>4</option>
+        <option<% if @book.stars == 5 %> selected <% end %>>5</option>
       </select>
       <br>
       <br>
   
       Is loaned out<br>
-      <input type="checkbox" name="is_loaned_out" value="1">
+      <input type="checkbox" name="is_loaned_out" value="1" 
+      <% if @book.is_loaned_out %> checked <% end %>>
       <br>
       <br>
-
+      <% if @book.new_record? %>
+      <button>Create</button>
+      <% else %>
       <button>Update</button>
+      <% end %>
     </form>
   </body>
 </html>
