@@ -2,7 +2,27 @@ require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
 
+use Rack::Session::Cookie, secret: SecureRandom.hex
 register SinatraMore::MarkupPlugin
+
+get ("/login")  do
+  halt erb(:login, layout: false)
+end
+
+post ("/login") do
+  found_user = SubAdmin.where(username: params["username"]).first
+  if found_user && params["password"] == found_user.password
+    session["user_id"] = found_user.id
+    redirect "/orders"
+  else
+    halt erb(:login, layout: false)
+  end
+end
+
+post ("/logout") do
+  session.clear
+  redirect "/orders"
+end
 
 get("/") do
   halt erb(:order_form)
@@ -28,6 +48,11 @@ post("/handle_post") do
 end
 
 get("/orders") do
-  @orders = SubOrder.all
-  halt erb(:sub_orders)
+  @user = SubAdmin.where(id: session["user_id"]).first
+  if @user == nil
+    redirect "/login"
+  else
+    @orders = SubOrder.all
+    halt erb(:sub_orders)
+  end
 end
