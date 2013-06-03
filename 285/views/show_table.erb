@@ -16,4 +16,33 @@
 
 <p class='todo'>if the table is occupied, show a button to Add Item To Order</p>
 
+<<<<<<< Updated upstream
 <p class='todo'>if the table is occupied, show a button to Close Out Order</p>
+=======
+  <hr>
+  <h2>Add item to order</h2>
+  <label for='menu_item'>Item to order:</label><br>
+  <select name='menu_item_id' multiple="multiple" style='height:100px'
+          id='menu_item'>
+    <% for item in MenuItem.all %>
+      <option value='<%= item.id %>'>
+        <%= item.name %> <%= sprintf("$%.2f", item.price) %>
+      </option>
+    <% end %>
+  </select>
+  <p>
+    Order for chair number:<br>
+    <% for i in 1..(@order.party_size) %>
+      <input type="radio" name="chair_number"
+             value="<%= i %>" id="chair_<%= i %>">
+      <label for="chair_<%= i %>"><%= i %></label>
+    <% end %>
+  </p>
+  <button name="action" value="close_out">Add item to order</button>
+
+  <p>
+    <button name="action" value="close_out">Close out</button>
+  </p>
+<% end %>
+</form>
+>>>>>>> Stashed changes
