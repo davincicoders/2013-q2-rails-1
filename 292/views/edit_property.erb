@@ -1,0 +1,21 @@
+    <h1>Edit property</h1>
+    
+    <% form_tag("/#{@property.id}") do %>
+      <p>
+      <b>ID #:</b> <%= @property.id %>
+
+      <p><%= label_tag "address", value: "Address" %>
+      <br><%= text_field_tag "address", value: @property.address, id: "address" %>
+
+      <p><%= label_tag "price", value: "Price" %>
+      <br><%= text_field_tag "price", id: "price", value: @property.price %>
+
+      <p><%= label_tag "bedrooms", value: "Bedrooms" %>
+      <br><%= text_field_tag "bedrooms", id: "bedrooms", value: @property.num_bedrooms %>
+
+      <p><%= label_tag "image_url", value: "Image URL" %>
+      <br><%= text_field_tag "image_url", id: "image_url", value: @property.image_url %>
+
+      <p>
+      <%= submit_tag "update", value: "Update" %>
+    <% end %>
