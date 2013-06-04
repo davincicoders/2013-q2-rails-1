@@ -1,0 +1,57 @@
+<html>
+  <body>
+  
+  <% if @property.new_record? %>
+    <h1>Add Property</h1>
+  <% else %>
+    <h1>Edit Property</h1>
+  <% end %>
+  
+  <% if @property.id == nil
+    action = "/property/new"
+  else
+    action = "/property/#{@property.id}"
+  end %>
+  
+    <form method="POST" action="<%= action %>">
+
+    <hr>
+      <p>
+      <b>ID #:</b> <%= @property.id %>
+      <br>
+      <br>
+
+      <%= label_tag "address", caption: "Address" %>
+      <%= text_field_tag "address", id: "address", value: @property.address %>
+      <br>
+      <br>
+      
+      <%= label_tag "price", caption: "Price" %>
+      <%= text_field_tag "price", id: "price", value: @property.price %>
+      <br>
+      <br>
+      
+      <%= label_tag "num_bedrooms", caption: "Bedrooms" %>
+      <%= text_field_tag "num_bedrooms", id: "num_bedrooms", value: @property.num_bedrooms %>
+      <br>
+      <br>
+      
+      <%= label_tag "num_stories", caption: "Stories" %>
+      <%= text_field_tag "num_stories", id: "num_stories", value: @property.num_stories %>
+      <br>
+      <br>
+      
+      <%= label_tag "num_square_feet", caption: "Square Feet" %>
+      <%= text_field_tag "num_square_feet", id: "num_square_feet", value: @property.num_square_feet %>
+      <br>
+      <br>
+      
+      <%= label_tag "image_url", caption: "Image URL" %>
+      <%= text_field_tag "image_url", id: "image_url", value: @property.image_url %>
+      <br>
+      <br>
+
+      <button>Update</button>
+    </form>
+  </body>
+</html>
