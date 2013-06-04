@@ -11,8 +11,9 @@ ActiveRecord::Base.establish_connection(
   database: "postgres")
 
 class GardenPlot < ActiveRecord::Base
-  validates_presence_of :seed_type
-  validates_presence_of :planted_year
-  validates_presence_of :planted_month
-  validates_presence_of :planted_day
+
+end
+
+class PropertyAdmin < ActiveRecord::Base
+  
 end
