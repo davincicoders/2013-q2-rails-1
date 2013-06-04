@@ -1,0 +1,29 @@
+<html>
+  <body>
+
+    <% form_tag("/logout") do %>
+    <p>You are logged in as <b><%= @user.username %></b>  
+    <%= submit_tag "logout" %></p>
+    <% end %>
+    <hr>
+
+    <h1>Edit property</h1>
+    <% form_tag("/property/#{@property.id}") do %>
+      <p>
+      <b>ID #:</b><%= @property.id %>
+      <%= label_tag "address", caption: "Address" %>
+      <%= text_field_tag "address", id: "address", value: @property.address %>
+      <br>
+      <%= label_tag "price", caption: "Price" %>
+      <%= text_field_tag "price", id: "price", value: @property.price %>
+      <br>
+      <%= label_tag "num_bedrooms", caption: "Bedrooms" %>
+      <%= text_field_tag "num_bedrooms", id: "num_bedrooms", value: @property.num_bedrooms %>
+      <br>
+      <%= label_tag "image_url", caption: "Image Url" %>
+      <%= text_field_tag "image_url", id: "image_url", value: @property.image_url %>
+      <br>
+      <%= submit_tag "Update" %>
+    <% end %>
+  </body>
+</html>

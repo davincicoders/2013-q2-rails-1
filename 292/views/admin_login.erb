@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <h1>Admin login</h1>
+    
+    <% if @error %>
+      <h3 style="color:red;"><%= @error %><h2>
+    <% end %>               
+      <br>
+      <% form_tag("/login") do %>
+        <%= label_tag "username", caption: "Username:" %>
+        <%= text_field_tag "username", id: "username" %>
+        <br>
+        <%= label_tag "password", caption: "Password:" %>
+        <%= password_field_tag "password", id: "password" %>
+        <br>
+        <br>
+        <%= submit_tag "login" %>
+      <% end %>
+
+  </body>
+</html>
