@@ -10,10 +10,8 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-class GardenPlot < ActiveRecord::Base
-
+class Property < ActiveRecord::Base
 end
 
 class PropertyAdmin < ActiveRecord::Base
-  
 end

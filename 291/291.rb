@@ -4,6 +4,10 @@ require './connect_to_db.rb'
 require 'pry'
 
 use Rack::Session::Cookie, secret: SecureRandom.hex
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85819fa6c72ddce1067aea67b4b246ad947ff7cb
 register SinatraMore::MarkupPlugin
 
 get("/") do
@@ -30,6 +34,7 @@ post("/handle_post") do
 end
 
 get("/orders") do
+<<<<<<< HEAD
   @found_user = SubAdmin.where(id: session["sub_user_id"]).first
   if @found_user == nil
     redirect "/login"
@@ -53,3 +58,32 @@ post "/login" do
     halt erb(:login)
   end
 end
+=======
+
+
+  @orders = SubOrder.all
+
+ #  @bank_user = BankUser.where(id: session["bank_user_id"]).first
+#   if @bank_user == nil
+#     redirect "/login"
+#   else
+#     halt erb(:accounts)
+#   end
+  halt erb(:sub_orders)
+end
+
+get "/login"  do
+  halt erb(:login, layout: false)
+end
+
+post "/login" do
+  found_admin_user = BankUser.where(username: params["username"]).first
+  if found_bank_user && params["password"] == found_bank_user.password
+    session["bank_user_id"] = found_bank_user.id
+    redirect "/accounts"
+  else
+    halt erb(:login, layout: false)
+  end
+end
+
+>>>>>>> 85819fa6c72ddce1067aea67b4b246ad947ff7cb

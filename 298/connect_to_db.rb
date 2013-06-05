@@ -10,10 +10,8 @@ ActiveRecord::Base.establish_connection(
   password: "postgres",
   database: "postgres")
 
-class GardenPlot < ActiveRecord::Base
-
-end
-
-class PropertyAdmin < ActiveRecord::Base
-  
+class G298User < ActiveRecord::Base
+  validates_presence_of :username
+  validates_presence_of :password
+  validates_uniqueness_of :username
 end
