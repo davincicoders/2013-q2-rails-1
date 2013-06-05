@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebApp</title>
+  </head>
+  <body>
+  
+  <% if @logged_in_user %>
+    <form method="POST" action="/logout">
+      You are logged in as <b><%= @logged_in_user.username %></b>.
+      <button>Logout</button>
+    </form>
+    <hr>
+  <% end %>
+  
+  <%= yield %>
+  
+  </body>
+</html>
