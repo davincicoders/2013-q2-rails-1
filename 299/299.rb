@@ -42,7 +42,7 @@ end
 
 post "/login" do
   named_user = G298User.where(username: params["username"]).first
-  if named_user && named_user.password == params["password"]
+  if named_user && named_user.authenticate(params["password"])
     session[:logged_in_user_id] = named_user.id
     redirect "/users"
   else
