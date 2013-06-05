@@ -1,0 +1,26 @@
+<h1>Register new user</h1>
+
+<% if @user.errors.size > 0 %>
+  Error(s):
+  <ul>
+  <% for error in @user.errors.full_messages %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<form method="post" action="/users">
+  <p>
+    Username<br>
+    <input type="text" name="username" value="<%= @user.username %>">
+  </p>
+  
+  <p>
+    Password<br>
+    <input type="password" name="password">
+  </p>
+  
+  <p>
+    <button>Register User</button>
+  </p>
+</form>
