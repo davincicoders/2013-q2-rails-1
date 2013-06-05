@@ -2,7 +2,7 @@
   <body>
   <% @admin = PropertyAdmin.where(id: session["found_admin_id"]).first %>
   <div style="float:right">You are logged in as <%= @admin.username %>!
-  <button name="session.clear" onclick="location.href='/login'">Log Out</button></div>
+  <button name="logout" onclick="location.href='/login'">Log Out</button></div>
     <hr/>
     <%= yield %>
   </body>
