@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      .flash-success { border: green 2px solid; }
+      .flash-error   { border: red 2px solid; }
+    </style>
+  </head>
+  <body>
+<%= flash %>
+<hr>
+<%= h(session.inspect) %>
+    <% if flash[:success] %>
+      <p class='flash-success'><%= flash[:success] %></p>
+    <% end %>
+
+    <% if flash[:error] %>
+      <p class='flash-error'><%= flash[:error] %></p>
+    <% end %>
+
+    <form method="post" action="/login">
+      <h2>Login</h2>
+      <p>
+        Username <input type="text" name="username" value="">
+        <br>
+        Password <input type="password" name="password" value="">
+        <br>
+        <button>Login</button>
+      </p>
+      <p>
+        <a href="/users/new">Need to create an account?</a>
+      </p>
+    </div>
+  </body>
+</html>
