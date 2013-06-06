@@ -1,8 +1,19 @@
 <html>
   <head>
     <title>Garden plots</title>
+    <style>
+      .flash-info {
+        border: 2px green solid;
+      }
+    </style>
   </head>
   <body>
+    <% if flash[:info] %>
+      <div class='flash-info'>
+        <%= flash[:info] %>
+      </div>
+    <% end %>
+
     <h1>Garden plots</h1>
 
     <form method="post" action="/plots">
