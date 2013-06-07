@@ -8,3 +8,5 @@ gem 'activerecord-postgresql-adapter'
 
 gem 'sinatra'
 gem 'sinatra_more'
+
+gem 'bcrypt-ruby', '~> 3.0.0'

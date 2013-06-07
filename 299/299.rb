@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require 'json'
+
 require './connect_to_db.rb'
 
 use Rack::Session::Cookie, secret: SecureRandom.hex
@@ -42,11 +43,11 @@ end
 
 post "/login" do
   named_user = G298User.where(username: params["username"]).first
-  if named_user && named_user.password == params["password"]
-    session[:logged_in_user_id] = named_user.id
-    redirect "/users"
-  else
-    @error = "Wrong username or password"
+	if named_user.authenticate(params["password"])
+		session[:logged_in_user_id] = named_user.id
+		redirect "/"
+	else 
+    redirect "/login"
   end
 end
 
