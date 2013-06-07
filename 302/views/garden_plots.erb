@@ -1,10 +1,33 @@
 <html>
   <head>
     <title>Garden plots</title>
+    <style>
+      table.success {
+        border-color: #008800
+      }
+      table.success td {
+        color: #008800
+      }
+      table.error {
+        border-color: #880000
+      }
+      table.error td {
+        color: #880000
+      }
+    </style>
   </head>
   <body>
     <h1>Garden plots</h1>
-
+    <% if flash[:error] != nil %>
+      <table border class="error">
+        <td><%= flash[:error] %></td>
+      </table>
+    <% else %>
+      <table border class="success">
+        <td><%= flash[:confirm] %><%= flash[:create] %><%= flash[:change] %></td>
+      </table>
+    <% end %>
+    
     <form method="post" action="/plots">
       <table border="1">
         <tr>
