@@ -32,6 +32,9 @@ post "/users" do
   @user = G298User.new
   @user.username = params["username"]
   @user.password = params["password"]
+  @user.password = params["password_confirmation"]
+  
+  
   if @user.save
     redirect "/users"
   else
@@ -41,10 +44,9 @@ end
 
 post "/login" do
   named_user = G298User.where(username: params["username"]).first
-  if named_user && named_user.password == params["password"]
-    session[:logged_in_user_id] = named_user.id
-    redirect "/users"
-  else
+  if named_user && named_user.authenticate(params["password"])
+      redirect "/users"
+    else
     @error = "Wrong username or password"
   end
 end
@@ -53,3 +55,4 @@ post "/logout" do
   session.clear
   redirect "/users"
 end
+

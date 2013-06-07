@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'pry-debugger'
-gem 'pry-doc'
+ gem 'pry-debugger'
+ gem 'pry-doc'
 
 gem 'activerecord', '~> 3.2'
 gem 'activerecord-postgresql-adapter'
 
 gem 'sinatra'
 gem 'sinatra_more'
+
+gem 'bcrypt-ruby', '~> 3.0.0'
