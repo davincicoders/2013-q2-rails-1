@@ -1,1 +1,14 @@
-303/Gemfile
+source 'https://rubygems.org'
+
+gem 'activerecord', '~> 3.2'
+gem 'activerecord-postgresql-adapter'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'minitest'
+gem 'minitest-reporters'
+gem 'mynyml-redgreen'
+gem 'pry-debugger'
+gem 'pry-doc'
+gem 'rack'
+gem 'rack-flash3'
+gem 'sinatra'
+gem 'sinatra_more'
