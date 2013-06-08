@@ -14,8 +14,11 @@ run(lambda do |env|
           if apps[app_num].nil?
             apps[app_num] = Sinatra::Application.new
           end
-          apps[app_num].settings.set :app_file, nil
-          return apps[app_num].call(env)
+          apps[app_num].settings.set :app_file, "./#{app_num}.rb"
+          response = apps[app_num].call(env)
+          #response[1].delete 'Content-Length'
+          #response[2].push "debugging inspects could go here"
+          return response
         else
           [
             404,
