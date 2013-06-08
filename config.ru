@@ -4,7 +4,8 @@ host_regex = /^([a-zA-Z0-9-]+).([a-z]{2}).2013q2.davincicoders2013.info$/
 
 run(lambda do |env|
   begin
-    if File.exists?("#{main_dir}/.public#{env['PATH_INFO']}")
+    if env['PATH_INFO'] != '/' &&
+       File.exists?("#{main_dir}/.public#{env['PATH_INFO']}")
       Rack::File.new("#{main_dir}/.public").call(env)
     elsif match = env['HTTP_HOST'].match(host_regex)
       app_num = match[1]
