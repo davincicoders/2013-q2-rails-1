@@ -16,10 +16,11 @@ ActiveRecord::Schema.define(:version => 20130609173042) do
   create_table "credit_cards", :force => true do |t|
     t.string   "card_type"
     t.string   "number"
-    t.string   "expiration_month"
-    t.string   "expiration_year"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "expiration_month",    :limit => 2
+    t.string   "expiration_year",     :limit => 4
+    t.string   "verification_number"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
 end
