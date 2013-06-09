@@ -37,4 +37,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# To use error_messages_for
 gem 'dynamic_form'
+
+# To use pry for debugging and rails console
+gem 'pry-rails', group: :development
