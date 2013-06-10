@@ -1,0 +1,31 @@
+<html>
+  <style>
+    div.flash-error {
+      background-color: #ffffff;
+      border: 2px #ff0000 solid;
+    }
+  </style>
+  <body>
+    <% if flash[:error] != nil %>
+      <div class="flash-error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <% form_tag("/login") do %>
+      <p>
+        <h1>
+          Car Share login
+        </h1>
+      </p>
+      Enter your username:
+      <br>
+      <%= text_field_tag "username" %>
+      <br>
+      Enter your password:
+      <br>
+      <%= password_field_tag "password" %>
+      <br>
+      <%= submit_tag "Login" %>
+    <% end %>
+  </body>
+</html>
