@@ -2,16 +2,14 @@
   <head>
   </head>
   <body>
-    <% form_tag("/logout") do %>
+    <% form_tag "/reservations" do %>
       Welcome, <%= @user.username %>
-      <%= submit_tag "Logout" %>
-    <% end %>
-    <p>
-      <h2>
-        My current reservation
-      </h2>
-    </p>
-    <% form_tag("/return") do %>
+      <button name="logout" value="1">Logout</button>
+      <p>
+        <h2>
+          My current reservation
+        </h2>
+      </p>
       <% if @car != nil %>
         <ul>
           <li>Car number: <%= @car.id %>
@@ -19,47 +17,45 @@
           <li>Model: <%= @car.model %>
         </ul>
         <p>
-          <%= submit_tag "Return this car" %>
+          <button name="return_this_car" value="1">Return this car</button>
         </p>
       <% else %>
         <ul>
           <li> No current reservations
         </ul>
       <% end %>          
-    <% end %>
-    </ul>
-    <p>
-      <h2>
-        List of available cars
-      </h2>
-    </p>
-  <% form_tag "/reservations" do %>
-    <table border="1">
-      <tr>
-        <th>Number</th>
-        <th>Color</th>
-        <th>Model</th>
-        <th>Available?</th>
-        <th>Reserve</th>
-      </tr>
-      <% for car in @cars %>
+      </ul>
+      <p>
+        <h2>
+          List of available cars
+        </h2>
+      </p>
+      <table border="1">
         <tr>
-          <td><%= car.id %></td>
-          <td><%= car.color %></td>
-          <td><%= car.model %></td>
-          <td><%=
-            if car.car_share_member_id?
-              "No"
-            else
-              "Yes"
-            end
-          %></td>
-          <% if !car.car_share_member_id? %>
-            <td><%= submit_tag "Reserve" %></td>
-          <% end %>
+          <th>Number</th>
+          <th>Color</th>
+          <th>Model</th>
+          <th>Available?</th>
+          <th>Reserve</th>
         </tr>
-      <% end %>
-    </table>
-  <% end %>
+        <% for car in @cars %>
+          <tr>
+            <td><%= car.id %></td>
+            <td><%= car.color %></td>
+            <td><%= car.model %></td>
+            <td><%=
+              if car.car_share_member_id?
+                "No"
+              else
+                "Yes"
+              end
+            %></td>
+            <% if !car.car_share_member_id? %>
+              <td><button name="reserve_this_car" value="<%= car.id %>">Reserve</button></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
   </body>
 </html>
