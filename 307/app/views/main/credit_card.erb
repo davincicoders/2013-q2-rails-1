@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <%= error_messages_for @credit_card %>
+
+    <h1>Enter your credit card info</h1>
+    <%= form_tag "/credit_card" do %>
+      <p>
+        Type of card:
+        <br>
+        <%= radio_button_tag "card_type", "Visa", @credit_card.card_type == "Visa" %>
+        Visa
+        <br>
+        <%= radio_button_tag "card_type", "Mastercard", @credit_card.card_type == "Mastercard" %>
+        Mastercard
+        <br>
+        <%= radio_button_tag "card_type", "Discover", @credit_card.card_type == "Discover" %>
+        Discover
+      </p>
+      <p>
+        Number:
+        <br>
+        <%= text_field_tag "number", @credit_card.number %>
+      </p>
+      <p>
+        Expiration date:
+        <%= select_tag "expiration_month",
+              options_for_select(["", "01", "02", "03", "04", "05", "06",
+                            "07", "08", "09", "10", "11", "12"],
+             @credit_card.expiration_month) %>
+        <%= select_tag "expiration_year",
+              options_for_select(["", "2013", "2014", "2015", "2016",
+                            "2017", "2018", "2019", "2020"],
+              @credit_card.expiration_year) %>
+      </p>
+      <p>
+        Verification number (on back):
+        <br>
+        <%= password_field_tag "verification_number",
+              @credit_card.verification_number %>
+      </p>
+      <p>
+        <button name='place_order' value='place_order'>Place order</button>
+      </p>
+    <% end %>
+  </body>
+</html>
