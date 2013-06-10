@@ -32,6 +32,7 @@ post "/users" do
   @user = G298User.new
   @user.username = params["username"]
   @user.password = params["password"]
+  @user.password_confirmation = params["password_confirmation"]
   if @user.save
     redirect "/users"
   else

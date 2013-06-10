@@ -1,0 +1,30 @@
+
+<html>
+  <head>
+    <style>
+      .flash-error { border: 2px red solid; }
+    </style>
+  </head>
+  <body>
+      <% if flash[:success] %>
+      <p class='flash-success'><%= flash[:success] %></p>
+    <% end %>
+
+    <% if flash[:error] %>
+      <p class='flash-error'><%= flash[:error] %></p>
+    <% end %>
+
+    <form method="POST" action="/login">
+  <h1>Car Share login</h1>
+
+  Enter your username:<br>
+  <input type="text" name="username" value=""><br>
+
+  Enter your password:<br>
+  <input type="text" name="password"><br>
+
+  <button>Login</button>
+</form>
+
+  </body>
+</html>

@@ -1,14 +1,14 @@
 <html>
   <body>
-    <form method="POST" action="admin_login.html">
-    You are logged in as <b>bsmith</b>.  <button>Logout</button>
+    <form method="POST" action="/properties/<%= @property.id %>">
+    You are logged in as <b><%= @admin.username %></b>.  
+    <button name="Logout" value="logout">Logout</button>
     </form>
     <hr>
 
     <h1>Edit property</h1>
-    <form method="POST" action="/properties/<%= @property.id %>">
       <p>
-      <b>ID #:</b> <@property.id %>
+      <b>ID #: </b> <%= @property.id %>
       
         <p>Address
       <br><%= text_field_tag "address", value: @property.address %>
@@ -24,7 +24,7 @@
         size: 99 %>
 
       <p>
-      <button>Update</button>
+      <button name="Update" value="update">Update</button>
     </form>
   </body>
 </html>

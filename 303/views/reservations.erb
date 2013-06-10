@@ -1,0 +1,42 @@
+
+<html>
+  <head>
+    <style>
+      .flash-error { border: 2px red solid; }
+    </style>
+  </head>
+  <body>
+
+    <form method="POST" action="/reservations">
+  <p>Welcome, Leor.
+    <button name="logout" value="logout">Logout</button>
+  </p>
+    </form>
+  <h2>My current reservation</h2>
+  
+     <ul><li>No current reservations</li></ul>
+  
+  <h2>List of available cars</h2>
+  <table border="1">
+    <tr>
+      <th>Number</th>
+      <th>Color</th>
+      <th>Model</th>
+      <th>Available?</th>
+      <th>Reserve</th>
+    </tr>
+    <% for car in @cars %>
+      <tr>
+         <td><%= car.id %></td>
+         <td><%= car.color %></td>
+         <td><%= car.model %></td>
+         <td><%= car.
+         <td><a href="/cars/<%= car.id %>">Reserve</a></td>         
+           <td>
+             <button name="reserve_this_car"
+               value="1">Reserve</button>
+           </td>
+    <% end %>
+  </table>
+ </body>
+</html>

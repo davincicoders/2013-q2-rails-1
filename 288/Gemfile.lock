@@ -65,6 +65,5 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   pry-debugger
   pry-doc
-  rack (>= 1.5.2)
   sinatra
   sinatra_more

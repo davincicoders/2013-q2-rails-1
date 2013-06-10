@@ -5,6 +5,14 @@ require './connect_to_db.rb'
 use Rack::Session::Cookie, secret: SecureRandom.hex
 after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
 
+SAFE_PAGES = ["/", "/login", "/logout"]
+before do
+  @bank_user = BankUser.where(id: session["bank_user_id"]).first
+    if !SAFE_PAGES.include?(request.path_info) && @bank_user == nil
+    redirect "/login"
+  end
+end
+
 get "/"  do
   redirect "/login"
 end
@@ -24,30 +32,15 @@ post "/login" do
 end
 
 get "/accounts" do
-  @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user == nil
-    redirect "/login"
-  else
     halt erb(:accounts)
-  end
 end
 
 get "/location" do
-  @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user.nil?
-    redirect "/login"
-  else
     halt erb(:location)
-  end
 end
 
 get "/rates" do
-  @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user.nil?
-    redirect "/login"
-  else
     halt erb(:rates)
-  end
 end
 
 get "/logout" do

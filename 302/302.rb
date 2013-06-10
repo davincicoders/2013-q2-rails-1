@@ -1,9 +1,12 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
+require 'rack-flash'
 
 register SinatraMore::MarkupPlugin
 after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
+use Rack::Session::Cookie, secret: SecureRandom.hex
+use Rack::Flash, sweep: true
 
 get "/"  do
   redirect "/plots"
@@ -19,6 +22,7 @@ post "/plots" do
     plot = GardenPlot.where(id: params["plot_id_to_delete"]).first
     plot.destroy
   end
+  flash[:info] = "Item has been taken care of. You know. Killed."
   redirect "/plots"
 end
 
@@ -39,7 +43,7 @@ post "/plots/:plot_id" do
   else
     @plot = GardenPlot.where(id: params["plot_id"]).first
   end
-
+  
   @plot.seed_type = params["seed_type"]
   @plot.planted_year = params["planted_year"]
   @plot.planted_month = params["planted_month"]
@@ -47,8 +51,13 @@ post "/plots/:plot_id" do
   @plot.is_unused = params["is_unused"]
 
   if @plot.save
-    redirect "/plots"
-  else
+    if params["plot_id"] == "new" 
+      flash[:info] = "Item has been created"
+    else
+      flash[:info] = "Item has been updated"
+    end
+      redirect "/plots"
+    else
     halt erb(:garden_plot)
   end
 end

@@ -16,8 +16,8 @@ end
 
 post "/login" do
   admin = PropertyAdmin.where(username: params["username"]).first
-  if admin && params["password"] == admin.password
-    session["property_admin_id"] = admin.id !=nil
+  if admin !=nil && params["password"] == admin.password
+    session["property_admin_id"] = admin.id #what does this line mean?
     redirect "/properties"
   else
     halt erb(:login)
