@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Ex0311Item.create({ :description => "cast-iron skillet" })
-Ex0311Item.create({ :description => "glass vase" })
+Item.create(description: "cast-iron skillet", sku: "S13")
+Item.create(description: "glass vase", sku: "V07")
