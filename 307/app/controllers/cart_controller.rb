@@ -1,31 +1,25 @@
 class CartController < ApplicationController
-
-  get "/" do
-    redirect "/credit_card"
-  end
-
-  get "/credit_card" do
+  def edit_credit_card
     @credit_card = CreditCard.new
-    halt erb(:credit_card)
+    render :edit_credit_card and return
   end
   
-get "/credit_card" => "cart#edit_credit_card"
-
-  post "/credit_card" do
-    @credit_card = CreditCard.new
-    @credit_card.card_type           = params[:card_type]
-    @credit_card.number              = params[:number]
-    @credit_card.verification_number = params[:verification_number]
-    @credit_card.expiration_month    = params[:expiration_month]
-    @credit_card.expiration_year     = params[:expiration_year]
+  def update_credit_card
+  @credit_card = CreditCard.new
+  @credit_card.card_type           = params[:card_type]
+  @credit_card.number              = params[:number]
+  @credit_card.verification_number = params[:verification_number]
+  @credit_card.expiration_month    = params[:expiration_month]
+  @credit_card.expiration_year     = params[:expiration_year]
   
-    if @credit_card.save
-      redirect "/thank_you"
-    else
-      halt erb(:credit_card)
-    end
+  if @credit_card.save
+    redirect "/thank_you"
+  else
+    render :credit_card and return
   end
 end
-get "/thank_you" do
-  halt erb(:thank_you)
+  
+  def thank_you
+    render :thank_you and return
+  end
 end
