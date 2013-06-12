@@ -1,0 +1,66 @@
+<html>
+  <body>
+    <h1>Table #7</h1>
+
+    Party of <input type="text" name="party_size" disabled>
+    <button action="reserve" disabled>Reserve</button>
+
+    <p>
+      Currently seating:<br>
+      party of <b>4</b>,
+      order #<b>5</b>
+    </p>
+
+    <hr>
+    <h2>Order so far</h2>
+    <p>No items have been ordered yet.</p>
+    <table border='1'>
+      <tr>
+        <th>Time</th>
+        <th>Position</th>
+        <th>Item name</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td align="right">6:30</td>
+        <td align="right">3</td>
+        <td>Coffee</td>
+        <td align="right">$2.00</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <th align="right">Total</th>
+        <th align="right">$2.00</th>
+      </tr>
+    </table>
+
+    <hr>
+    <h2>Add item to order</h2>
+    <label for='menu_item'>Item to order:</label><br>
+    <select multiple="multiple" style='height:100px' id='menu_item'>
+      <option>Coffee $2.00</option>
+      <option>Hot Chocolate $2.50</option>
+      <option>Milk $2.00</option>
+      <option>Bottle water $2.00</option>
+      <option>Juice $2.50</option>
+      <option>Canned pop $2.00</option>
+    </select>
+    <p>
+      Order for position number:<br>
+      <input type="radio" name="position" value="1" id="position_1">
+      <label for="position_1">1</label>
+      <input type="radio" name="position" value="2" id="position_2">
+      <label for="position_2">2</label>
+      <input type="radio" name="position" value="3" id="position_3">
+      <label for="position_3">3</label>
+      <input type="radio" name="position" value="4" id="position_4">
+      <label for="position_4">4</label>
+    </p>
+    <button name="action" value="add_order_item">Add item to order</button>
+
+    <p>
+      <button name="action" value="close_out">Close out</button>
+    </p>
+  </body>
+</html>
