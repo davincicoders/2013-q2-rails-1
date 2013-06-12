@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #tables {
+        position: relative;
+        border: 1px black solid;
+        width: 300px;
+        height: 500px;
+      }
+      .table {
+        position: absolute;
+        font-size: 50px;
+        text-align: center;
+      }
+      #t1  { top:  50px; left:  50px; }
+      #t2  { top: 120px; left:  50px; }
+      #t3  { top: 190px; left:  50px; }
+      #t4  { top:  50px; left: 210px; }
+      #t5  { top: 120px; left: 210px; }
+      #t6  { top: 190px; left: 210px; }
+      #t7  { top: 300px; left:  50px; }
+      #t8  { top: 400px; left:  50px; }
+      #t9  { top: 400px; left: 130px; }
+      #t10 { top: 400px; left: 200px; }
+      #t11 { top: 300px; left: 200px; }
+      #divider1 {
+        position: absolute;
+        top: 265px;
+        left: 0px;
+        width: 100px;
+        height: 10px;
+        background-color: black;
+      }
+      #divider2 {
+        position: absolute;
+        top: 265px;
+        left: 200px;
+        width: 100px;
+        height: 10px;
+        background-color: black;
+      }
+      .chair {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Choose a table</h1>
+    <div id='tables'>
+      <div class='table' id='t1'>
+        <a href='/1'>1</a>
+        <div class='chair'>1</div>
+      </div>
+      <div class='table' id='t2'><a href='/2'>2</a></div>
+      <div class='table' id='t3'><a href='/3'>3</a></div>
+      <div class='table' id='t4'><a href='/4'>4</a></div>
+      <div class='table' id='t5'><a href='/5'>5</a></div>
+      <div class='table' id='t6'><a href='/6'>6</a></div>
+      <div class='table' id='t7'><a href='/7'>7</a></div>
+      <div class='table' id='t8'><a href='/8'>8</a></div>
+      <div class='table' id='t9'><a href='/9'>9</a></div>
+      <div class='table' id='t10'><a href='/10'>10</a></div>
+      <div class='table' id='t11'><a href='/11'>11</a></div>
+      <div id='divider1'></div>
+      <div id='divider2'></div>
+    </div>
+  </body>
+</html>
