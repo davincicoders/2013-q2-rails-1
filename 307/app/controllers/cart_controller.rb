@@ -13,7 +13,7 @@ class CartController < ApplicationController
   @credit_card.expiration_year     = params[:expiration_year]
   
   if @credit_card.save
-    redirect "/thank_you"
+    redirect_to "/thank_you"
   else
     render :credit_card and return
   end

@@ -26,6 +26,8 @@ get "/credit_card" => "cart#edit_credit_card"
     #end
   #end
 post "/credit_card" => "cart#update"
+get  "/thank_you"     => "cart#thank_you"
+
 end
   # The priority is based upon order of creation:
   # first created -> highest priority.
