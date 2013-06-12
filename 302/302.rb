@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra_more/markup_plugin'
 require './connect_to_db.rb'
-
+require 'rack-flash'
+use Rack::Session::Cookie, secret: SecureRandom.hex
+use Rack::Flash, sweep: true
 register SinatraMore::MarkupPlugin
 after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
 
@@ -18,6 +20,7 @@ post "/plots" do
   if params["plot_id_to_delete"] != nil
     plot = GardenPlot.where(id: params["plot_id_to_delete"]).first
     plot.destroy
+    flash[:delete] = "You have deleted a plot"
   end
   redirect "/plots"
 end
@@ -36,16 +39,16 @@ end
 post "/plots/:plot_id" do
   if params["plot_id"] == "new"
     @plot = GardenPlot.new
+    flash[:new] = "You have added a plot"
   else
     @plot = GardenPlot.where(id: params["plot_id"]).first
+    flash[:update] = "You have updated a plot"
   end
-
   @plot.seed_type = params["seed_type"]
   @plot.planted_year = params["planted_year"]
   @plot.planted_month = params["planted_month"]
   @plot.planted_day = params["planted_day"]
   @plot.is_unused = params["is_unused"]
-
   if @plot.save
     redirect "/plots"
   else

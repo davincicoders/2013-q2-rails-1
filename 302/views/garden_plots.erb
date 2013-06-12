@@ -1,8 +1,24 @@
 <html>
   <head>
     <title>Garden plots</title>
+    <style>
+      .flash-delete { color: red; }
+      .flash-new   { color: green; }
+      .flash-update { color: yellow; }
+    </style>
   </head>
   <body>
+  
+   <% if flash[:delete] %>
+      <p class='flash-delete'><%= flash[:delete] %></p>
+    <% end %>
+    <% if flash[:update] %>
+      <p class='flash-update'><%= flash[:update] %></p>
+    <% end %>
+    <% if flash[:new] %>
+      <p class='flash-new'><%= flash[:new] %></p>
+    <% end %>
+    
     <h1>Garden plots</h1>
 
     <form method="post" action="/plots">

@@ -29,9 +29,10 @@ get "/users/new" do
 end
 
 post "/users" do
-  @user = G298User.new
-  @user.username = params["username"]
-  @user.password = params["password"]
+  @user = G298User.create(
+          username: params["username"], 
+          password: params["password"], 
+          password_confirmation: params["password_confirmation"]) 
   if @user.save
     redirect "/users"
   else

@@ -23,32 +23,19 @@ post "/login" do
   end
 end
 
-get "/accounts" do
+SAFE_PAGES = ["/", "/login"]
+before do
   @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user == nil
+  if !SAFE_PAGES.include?(request.path_info) && @bank_user.nil?
     redirect "/login"
-  else
-    halt erb(:accounts)
   end
 end
+  
+get("/accounts") { halt erb(:accounts) }
 
-get "/location" do
-  @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user.nil?
-    redirect "/login"
-  else
-    halt erb(:location)
-  end
-end
+get("/location") { halt erb(:location) }
 
-get "/rates" do
-  @bank_user = BankUser.where(id: session["bank_user_id"]).first
-  if @bank_user.nil?
-    redirect "/login"
-  else
-    halt erb(:rates)
-  end
-end
+get("/rates") { halt erb(:rates) }
 
 get "/logout" do
   session.clear
