@@ -6,26 +6,25 @@
   </head>
   <body>
   
-<% form_tag("/reservations") %>
-  <p>Welcome, <%= @user.username %>
-    <%= submit_tag "Logout" %>
+<form method="POST" action="/reservations">
+  <p>Welcome, <%= @user.first_name %>
+    <button name="logout" value="logout">Logout</button>
   </p>
-  
+
   <h2>My current reservation</h2>
-  
-  <% if @user.cars == [] %>
-    <ul>
-      <li>No current reservations
-    </ul>
+  <% if @car == nil %>
+     <ul><li>No current reservations</li></ul>
   <% else %>
     <ul>
-      <li>Car number: <%= @user.cars.first.id %>
-      <li>Color: <%= @user.cars.first.color %> 
-      <li>Model: <%= @user.cars.first.model %>
+      <li>Car number: <%= @car.id %> </li>
+      <li>Color: <%= @car.color %> </li>
+      <li>Model: <%= @car.model %> </li>
     </ul>
-    <%= submit_tag "Return This Car" %>
-    <% end %>
-  
+
+    <button name="return_this_car" value="return_this_car">
+      Return this car
+    </button>
+  <% end %>
 
   <h2>List of available cars</h2>
   <table border="1">
@@ -36,20 +35,25 @@
       <th>Available?</th>
       <th>Reserve</th>
     </tr>
-    <%= for car in @cars %>
+    <% for car in Car.order('id') %>
       <tr>
-        <td><%= car.id %>
-        <td><%= car.color %>
-        <td><%= car.model %>
-        <% if car.car_share_member_id == nil %>
-          <td>No
-        <% else %>
-          <td>Yes
-          <td><%= submit_tag "Reserve", value: car.id %>
-        <% end %>
+         <td><%= car.id %></td>
+         <td><%= car.color %></td>
+         <td><%= car.model %></td>
+         <% if car.car_share_member == nil %>
+           <td>Yes</td>
+           <td>
+             <button name="reserve_this_car"
+               value="<%= car.id %>">Reserve</button>
+           </td>
+         <% else %>
+           <td>No</td>
+         <% end %>
+
+      </tr>
     <% end %>
   </table>
-<% end %>
+</form>
 
   </body>
 </html>

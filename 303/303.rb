@@ -32,7 +32,8 @@ post("/login") do
 end
 
 get "/reservations" do
-	@cars = Car.order("id")
+	@car = Car.where(car_share_member_id: session["user"]).first
+	halt erb(:reservations)
 end
 
 post "/reservations" do
@@ -48,6 +49,6 @@ post "/reservations" do
 	  car = Car.where(id: params["Reserve"]).first
 	  car.car_share_member_id = @user.id
 	  car.save!
-	  redirect "/reservations"
+	  halt erb(:reservations)
 	end
 end
