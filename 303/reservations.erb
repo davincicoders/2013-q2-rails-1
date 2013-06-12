@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <style>
+      .flash-error { border: 2px red solid; }
+    </style>
+  </head>
+  <body>
+    
+
+<% form_tag("/reservations") %>
+  <p>Welcome, <%= @user.username %>
+    <%= submit_tag "Logout" %>
+  </p>
+  
+  <h2>My current reservation</h2>
+  
+  <% if @user.cars == [] %>
+    <ul>
+      <li>No current reservations
+    </ul>
+  <% else %>
+    <ul>
+      <li>Car number: <%= @user.cars.first.id %>
+      <li>Color: <%= @user.cars.first.color %> 
+      <li>Model: <%= @user.cars.first.model %>
+    </ul>
+    <%= submit_tag "Return This Car" %>
+    <% end %>
+  
+
+  <h2>List of available cars</h2>
+  <table border="1">
+    <tr>
+      <th>Number</th>
+      <th>Color</th>
+      <th>Model</th>
+      <th>Available?</th>
+      <th>Reserve</th>
+    </tr>
+    <%= for car in @cars %>
+      <tr>
+        <td><%= car.id %>
+        <td><%= car.color %>
+        <td><%= car.model %>
+        <% if car.car_share_member_id = null %>
+          <td>No
+        <% else %>
+          <td>Yes
+          <td><%= submit_tag "Reserve" %>
+        <% end %>
+    <% end %>
+  </table>
+<% end %>
+
+  </body>
+</html>
