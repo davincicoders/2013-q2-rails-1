@@ -11,26 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315150000) do
+ActiveRecord::Schema.define(:version => 20130612173725) do
 
-  create_table "credit_cards", :force => true do |t|
-    t.integer "user_id"
-    t.integer "num"
-    t.integer "verification_num"
+  create_table "car_share_members", :force => true do |t|
+    t.string "first_name"
+    t.string "username"
+    t.string "password_digest"
   end
 
-  create_table "items", :force => true do |t|
-    t.string "description"
-    t.string "sku"
-  end
-
-  create_table "items_users", :force => true do |t|
-    t.integer "item_id"
-    t.integer "user_id"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string "name"
+  create_table "cars", :force => true do |t|
+    t.string  "color"
+    t.string  "model"
+    t.integer "car_share_member_id"
+    t.string  "licence_plate"
   end
 
 end

@@ -5,8 +5,7 @@
     </style>
   </head>
   <body>
-    
-
+  
 <% form_tag("/reservations") %>
   <p>Welcome, <%= @user.username %>
     <%= submit_tag "Logout" %>
@@ -42,11 +41,11 @@
         <td><%= car.id %>
         <td><%= car.color %>
         <td><%= car.model %>
-        <% if car.car_share_member_id = null %>
+        <% if car.car_share_member_id == nil %>
           <td>No
         <% else %>
           <td>Yes
-          <td><%= submit_tag "Reserve" %>
+          <td><%= submit_tag "Reserve", value: car.id %>
         <% end %>
     <% end %>
   </table>

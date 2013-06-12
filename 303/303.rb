@@ -21,26 +21,33 @@ get("/") { redirect "/login" }
 get("/login") { halt erb(:login) }
 
 post("/login") do
-	@user = CarShareMember.where(username params["username"]).first
-	if @user == nil || @user.authenticate(params["password"])
-		flash[:error] = "Please enter a valid username and password."
-		redire "/login"
+	@user = CarShareMember.where(username: params["username"]).first
+	if @user != nil && @user.authenticate(params["password"])
+	  session["user"] = @user.id
+	  redirect "/reservations"
 	else
-	 session["user"] = @user.id
-	 redirect "/reservations"
+	  flash[:error] = "Please enter a valid username and password."
+		redirect "/login"
 	end
 end
 
 get "/reservations" do
-	@user = CarShareMember.where(id: session["user"]).first
-	@cars = Car.order(id)
+	@cars = Car.order("id")
 end
 
 post "/reservations" do
-	if params["logout"]
+	if params["Logout"]
 		session.clear
 		redirect "/login"
 	elsif params["Return this car"]
+	  car = Car.where(id: @user.cars.first.id).first
+	  car.car_share_member_id = null
+	  car.save!
+	  redirect "/reservations"
 	elsif params["Reserve"]
+	  car = Car.where(id: params["Reserve"]).first
+	  car.car_share_member_id = @user.id
+	  car.save!
+	  redirect "/reservations"
 	end
 end
