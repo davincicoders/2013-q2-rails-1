@@ -1,0 +1,86 @@
+body {
+  font-family: sans-serif;
+}
+#tables {
+  position: relative;
+  border: 1px black solid;
+  width: 300px;
+  height: 500px;
+}
+.table {
+  position: absolute;
+  font-size: 50px;
+  text-align: center;
+  background-color: green;
+}
+.table a {
+  color: white;
+}
+.table.occupied {
+  background-color: red;
+}
+#t1  { top:  30px; left:  50px; }
+#t2  { top: 100px; left:  50px; }
+#t3  { top: 170px; left:  50px; }
+#t4  { top:  30px; left: 210px; }
+#t5  { top: 100px; left: 210px; }
+#t6  { top: 170px; left: 210px; }
+#t7  { top: 300px; left:  50px; }
+#t8  { top: 400px; left:  50px; }
+#t9  { top: 400px; left: 130px; }
+#t10 { top: 400px; left: 200px; }
+#t11 { top: 300px; left: 200px; }
+#divider1 {
+  position: absolute;
+  top: 265px;
+  left: 0px;
+  width: 100px;
+  height: 10px;
+  background-color: black;
+}
+#divider2 {
+  position: absolute;
+  top: 265px;
+  left: 200px;
+  width: 100px;
+  height: 10px;
+  background-color: black;
+}
+.chair {
+  width: 15px;
+  height: 23px;
+  background-image: url("/images/chair.png");
+  background-size: 15px 23px;
+}
+.chair.west {
+  position: absolute;
+  top: -40px;
+  left: -16px;
+}
+.chair.east {
+  position: absolute;
+  top: -40px;
+  right: -20px;
+}
+.chair.north {
+  position: absolute;
+  top: -70px;
+  right: 5px;
+}
+.chair.south {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+}
+
+.error {
+  border: 3px red solid;
+  color: red;
+}
+
+.todo:before {
+  content: "TODO: ";
+}
+.todo {
+  color: green;
+}
