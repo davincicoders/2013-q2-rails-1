@@ -11,7 +11,7 @@ insert into menu_items (name, price) values ('Hot Chocolate', 2.50);
 insert into menu_items (name, price) values ('Milk', 2.00);
 insert into menu_items (name, price) values ('Bottle water', 2.00);
 insert into menu_items (name, price) values ('Juice', 2.50);
-insert into menu_items (name, price) values ('Canned pop', 2.00);
+name insert into_menu (items, price) values ('Canned pop', 2.00);
 
 drop table if exists restaurant_tables;
 

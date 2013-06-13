@@ -1,0 +1,91 @@
+<% if @error != nil %>
+  <div class="error">
+    <%= @error %>
+  </div>
+<% end %>
+
+<% if @item && @item.errors.size > 0 %>
+  <div class="error">
+    <%= error_messages_for @item, header_message: "Error adding to order:" %>
+  </div>
+<% end %>
+
+<p>
+  <a href="/">See all tables</a>
+</p>
+
+<h1>Table #<%= @table.id %></h1>
+
+<form method="post" action="/table/<%= @table.id %>">
+<% if @order.nil? %>
+  <p>Table is currently unoccupied
+     and has <b><%= @table.number_of_chairs %></b> chairs.</p>
+  <p>Enter party size: <input type="text" name="party_size"></p>
+  <button action="mark_table_occupied">Mark table occupied</button>
+
+<% else %>
+  <p>
+    Currently seating:<br>
+    party of <b><%= @order.party_size %></b>,
+    order #<b><%= @order.id %></b>
+  </p>
+
+  <hr>
+  <h2>Order so far</h2>
+  <% if @order.ordered_menu_items.size == 0 %>
+    <p>No items have been ordered yet.</p>
+  <% else %>
+    <table border='1'>
+      <tr>
+        <th>Time</th>
+        <th>Chair #</th>
+        <th>Item name</th>
+        <th>Price</th>
+      </tr>
+      <% total_price = 0.00 %>
+      <% for line in @order.ordered_menu_items %>
+        <% total_price += line.menu_item.price %>
+        <tr>
+          <td align="right"><%= line.created_at %></td>
+          <td align="right"><%= line.chair_number %></td>
+          <td><%= line.menu_item.name %></td>
+          <td align="right">
+            <%= sprintf("$%.2f", line.menu_item.price) %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <th align="right">Total</th>
+        <th align="right"><%= sprintf("$%.2f", total_price) %></th>
+      </tr>
+    </table>
+  <% end %>
+
+  <hr>
+  <h2>Add item to order</h2>
+  <label for='menu_item'>Item to order:</label><br>
+  <select name='menu_item_id' multiple="multiple" style='height:100px'
+          id='menu_item'>
+    <% for item in MenuItem.all %>
+      <option value='<%= item.id %>'>
+        <%= item.name %> <%= sprintf("$%.2f", item.price) %>
+      </option>
+    <% end %>
+  </select>
+  <p>
+    Order for chair number:<br>
+    <% for i in 1..(@order.party_size) %>
+      <input type="radio" name="chair_number"
+             value="<%= i %>" id="chair_<%= i %>">
+      <label for="chair_<%= i %>"><%= i %></label>
+    <% end %>
+  </p>
+  <button name="button" value="add_item_to_order">Add item to order</button>
+
+  <p>
+    <button name="button" value="close_out">Close out</button>
+  </p>
+<% end %>
+</form>
