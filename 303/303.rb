@@ -48,15 +48,15 @@ get "/reservations" do
 end
 
 post "/reservations" do
-  if params["logout"] != nil
+  if params["logout"]
     session.clear
     redirect "/login"
-  elsif params["return_this_car"] != nil
+  elsif params["return_this_car"] 
     car = Car.where(car_share_member_id: session[:car_share_member_id]).first
     car.car_share_member_id = nil
     car.save!
     redirect "/reservations"
-  elsif params["reserve_this_car"] != nil
+  elsif params["reserve_this_car"] 
     car = Car.where(id: params["reserve_this_car"]).first
     car.car_share_member_id = session[:car_share_member_id]
     car.save!
