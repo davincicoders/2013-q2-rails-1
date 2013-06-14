@@ -1,0 +1,171 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to InitialSchema (20130613181529)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to InitialSchema (20130613181529)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "credit_cards" ("id" serial primary key, "card_type" character varying(255), "number" character varying(255), "expiration_month" character varying(2), "expiration_year" character varying(4), "verification_number" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130613181529')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-06-13 12:28:03 -0600
+
+
+Started GET "/credit_card" for 127.0.0.1 at 2013-06-13 12:28:03 -0600
+Processing by CartController#edit_credit_card as HTML
+  Rendered cart/credit_card.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 48ms
+
+ActionView::Template::Error (undefined method `error_messages_for' for #<#<Class:0x00000103022e58>:0x0000010319f1a0>):
+    1: <html>
+    2:   <body>
+    3:     <%= error_messages_for @credit_card %>
+    4: 
+    5:     <h1>Enter your credit card info</h1>
+    6:     <%= form_tag "/credit_card" do %>
+  app/views/cart/credit_card.erb:3:in `_app_views_cart_credit_card_erb___3233798946058378873_2174552820'
+  app/controllers/cart_controller.rb:4:in `edit_credit_card'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/credit_card" for 127.0.0.1 at 2013-06-13 12:30:09 -0600
+Processing by CartController#edit_credit_card as HTML
+  Rendered cart/credit_card.erb within layouts/application (63.8ms)
+Compiled application.css  (0ms)  (pid 4647)
+Compiled jquery.js  (1ms)  (pid 4647)
+Compiled jquery_ujs.js  (0ms)  (pid 4647)
+Compiled application.js  (26ms)  (pid 4647)
+Completed 200 OK in 153ms (Views: 131.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-13 12:30:09 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:09 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:09 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:09 -0600
+Served asset /application.js - 304 Not Modified (18ms)
+
+
+Started POST "/credit_card" for 127.0.0.1 at 2013-06-13 12:30:16 -0600
+Processing by CartController#update_credit_card as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u3yrZRaMts2B4PkUjPO7p4rJI0xL1SSpXtZh+bKZwJo=", "card_type"=>"Visa", "number"=>"234234", "expiration_month"=>"01", "expiration_year"=>"2015", "verification_number"=>"", "place_order"=>"place_order"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered cart/credit_card.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-13 12:30:16 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:16 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:16 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:16 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/credit_card" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Processing by CartController#update_credit_card as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u3yrZRaMts2B4PkUjPO7p4rJI0xL1SSpXtZh+bKZwJo=", "card_type"=>"Visa", "number"=>"234234", "expiration_month"=>"01", "expiration_year"=>"2015", "verification_number"=>"234", "place_order"=>"place_order"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "credit_cards" ("card_type", "created_at", "expiration_month", "expiration_year", "number", "updated_at", "verification_number") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["card_type", "Visa"], ["created_at", Thu, 13 Jun 2013 18:30:18 UTC +00:00], ["expiration_month", "01"], ["expiration_year", "2015"], ["number", "234234"], ["updated_at", Thu, 13 Jun 2013 18:30:18 UTC +00:00], ["verification_number", "234"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/thank_you
+Completed 302 Found in 6ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Processing by CartController#thank_you as HTML
+  Rendered cart/thank_you.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:18 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:20 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:20 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-13 12:30:20 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-13 12:30:20 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+
+
+Started GET "/credit_card" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+Processing by CartController#edit_credit_card as HTML
+  Rendered cart/credit_card.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-13 12:37:17 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
