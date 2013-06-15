@@ -1,0 +1,17 @@
+<% for property in @properties %>
+
+  <div style="float:left;margin-right:30px">
+    <%= link_to property_path(property) do %>
+      <img src="<%= property.image_url %>" width="250" height="188">
+    <% end %>
+    <br>
+
+    <div style="float:right">
+      <%= link_to property.price, property_path(property) %>
+    </div>
+
+    <%= link_to property.address, property_path(property) %>
+  </div>
+
+<% end %>
+
