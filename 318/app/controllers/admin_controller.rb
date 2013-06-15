@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
 
   before_filter(except: ["login", "login_post", "logout"]) do
-    if session[:property_admin_id]
+    if session[:property_admin_id] != nil
       @admin = PropertyAdmin.where(id: session[:property_admin_id]).first
     else
       flash[:error] = "You must be logged in to see that page."
@@ -78,7 +78,7 @@ class AdminController < ApplicationController
     @property.image_url       = params["image_url"]
 
     if @property.save
-      redirect_to :edit_properties and return
+      redirect_to "/edit_properties" and return
     else
       render :add_new_property and return
     end
@@ -87,7 +87,7 @@ class AdminController < ApplicationController
   def delete_property
     @property = Property.where(id: params["id"]).first
     @property.destroy
-    redirect_to :edit_properties and return
+    redirect_to "/edit_properties" and return
   end
 
   def logout
