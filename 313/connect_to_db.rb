@@ -23,8 +23,8 @@ else
     database: "postgres")
 end
 
-class RestaurantTable < ActiveRecord::Base
-  has_many :restaurant_orders
+class RestaurantTable < ActiveRecord::Base 
+  has_many :restaurant_orders   
 end
 
 class MenuItem < ActiveRecord::Base

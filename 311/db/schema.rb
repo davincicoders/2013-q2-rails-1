@@ -11,27 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315150000) do
+ActiveRecord::Schema.define(:version => 20130314083000) do
 
   create_table "credit_cards", :force => true do |t|
     t.integer "user_id"
     t.integer "num"
-    t.integer "verification_num"
-  end
+    end
 
   create_table "items", :force => true do |t|
-    t.string  "description"
-    t.string  "sku"
-    t.boolean "is_current"
-  end
+    t.string "description"
+    t.string "sku"
+    end
 
   create_table "items_users", :force => true do |t|
     t.integer "item_id"
     t.integer "user_id"
-  end
+    end
 
   create_table "users", :force => true do |t|
     t.string "name"
-  end
-
+    end
 end
