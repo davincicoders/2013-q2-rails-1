@@ -1,7 +1,7 @@
 class RealEstateController < ApplicationController
 
   def root
-    redirect_to "/view_properties" and return
+    redirect_to properties_path and return
   end
 
   def view_properties
