@@ -25,7 +25,7 @@ get "/credit_card" => "cart#edit_credit_card"
     #  halt erb(:credit_card)
     #end
   #end
-post "/credit_card" => "cart#update"
+post "/credit_card" => "cart#update_credit_card"
 get  "/thank_you"     => "cart#thank_you"
 
 end
