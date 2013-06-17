@@ -39,4 +39,3 @@ get "/reservations" do
     @cars = Car.order("id")
    halt erb(:reservations)
  end
-  
