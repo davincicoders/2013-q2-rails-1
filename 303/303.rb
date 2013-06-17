@@ -8,11 +8,13 @@ after { ActiveRecord::Base.connection.close } # fix ConnectionTimeoutError
 use Rack::Session::Cookie, secret: SecureRandom.hex
 use Rack::Flash, sweep: true
 
+# TODO: write request handlers below
+
 get "/" do
   redirect "/login"
 end
 
-get "/login" do
+get "/login" do 
   @user = CarShareMember.new
   halt erb(:login)
 end
