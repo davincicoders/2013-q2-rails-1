@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(:version => 20130315150000) do
   end
 
   create_table "items", :force => true do |t|
-    t.string  "description"
-    t.string  "sku"
-    t.boolean "is_current"
+    t.string "description"
+    t.string "sku"
   end
 
   create_table "items_users", :force => true do |t|
