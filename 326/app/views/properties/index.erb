@@ -1,0 +1,30 @@
+<table border="1">
+  <tr>
+    <th>ID #</th>
+    <th>Address</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% for property in @properties %>
+    <tr>
+      <td><%= property.id %></td>
+      <td><%= property.address %></td>
+      <td><%= property.price %></td>
+      <td>
+        <%= link_to "Edit", edit_property_path(property) %>
+      </td>
+      <td>
+        <%= form_tag property_path(property) do %>
+          <input type="hidden" name="_method" value="DELETE">
+          <button name="delete" value="delete">Delete</button>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="5">
+      <%= link_to "Add new property", new_property_path %>
+    </td>
+  </tr>
+</table>
