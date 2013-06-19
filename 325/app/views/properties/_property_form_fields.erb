@@ -1,0 +1,61 @@
+<%= form_for @property do |f| %>
+
+  <% if @property.id %>
+    <p>
+      <b>ID #: </b><%= @property.id %>
+    </p>
+  <% end %>
+
+  <p>
+    Address
+    <br>
+    <%= f.text_field :address %>
+  </p>
+  
+  <p>
+    Price
+    <br>
+    <%= f.text_field :price %>
+  </p>
+  
+  <p>
+    Bedrooms
+    <br>
+    <%= f.text_field :num_bedrooms %>
+  </p>
+  
+  <p>
+    Image URL
+    <br>
+    <%= f.text_field :image_url, size: 80 %>
+  </p>
+  
+  <p>
+    City
+    <br>
+    <%= f.text_field :city %>
+  </p>
+  
+  <p>
+    State
+    <br>
+    <%= f.text_field :state %>
+  </p>
+  
+  <p>
+    Number of stories
+    <br>
+    <%= f.text_field :num_stories %>
+  </p>
+  
+  <p>
+    Number of square feet
+    <br>
+    <%= f.text_field :num_square_feet %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
