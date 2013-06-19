@@ -7,7 +7,7 @@
   </ul>
 <% end %>
 
-<%= form_tag "/edit_property/#{@property.id}" do %>
+<%= form_tag edit_post_path(@property.id) do %>
   <%= render :partial => "property_form_fields" %>
 
   <p>
