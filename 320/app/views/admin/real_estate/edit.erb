@@ -7,10 +7,11 @@
   </ul>
 <% end %>
 
-<%= form_tag create_path do %>
+<%= form_tag admin_real_estate_path(@property) do %>
+<input type="hidden" name="_method" value="PUT">
   <%= render :partial => "property_form_fields" %>
 
   <p>
-    <button name="create" value="create">Create</button>
-  <p>
+    <button name="update" value="update">Update</button>
+  </p>
 <% end %>
