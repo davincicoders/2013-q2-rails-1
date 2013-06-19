@@ -1,0 +1,67 @@
+<% if @property.errors.size > 0 %>
+  Errors:
+  <ul>
+  <% for error in @property.errors.full_messages %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag "/edit_property/#{@property.id}" do %>
+
+  <p>
+    <b>ID #: </b><%= @property.id %>
+  </p>
+  
+  <p>
+    Address
+    <br>
+    <input type="text" name="address" value="<%= @property.address %>"/>
+  </p>
+  
+  <p>
+    Price
+    <br>
+    <input type="text" name="price" value="<%= @property.price %>"/>
+  </p>
+  
+  <p>
+    Bedrooms
+    <br>
+    <input type="text" name="num_bedrooms" value="<%= @property.num_bedrooms %>"/>
+  </p>
+  
+  <p>
+    Image URL
+    <br>
+    <input type="text" name="image_url" value="<%= @property.image_url %>" size="80"/>
+  </p>
+  
+  <p>
+    City
+    <br>
+    <input type="text" name="city" value="<%= @property.city %>"/>
+  </p>
+  
+  <p>
+    State
+    <br>
+    <input type="text" name="state" value="<%= @property.state %>"/>
+  </p>
+  
+  <p>
+    Number of stories
+    <br>
+    <input type="text" name="num_stories" value="<%= @property.num_stories %>"/>
+  </p>
+  
+  <p>
+    Number of square feet
+    <br>
+    <input type="text" name="num_square_feet" value="<%= @property.num_square_feet %>"/>
+  </p>
+  
+  <p>
+    <button name="update" value="update">Update</button>
+  </p>
+<% end %>
