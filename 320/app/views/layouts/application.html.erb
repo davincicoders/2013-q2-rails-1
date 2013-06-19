@@ -11,10 +11,10 @@
 <h1><%= @title %></h1>
 
 <% if @admin %>
-  <form method="POST" action="/logout">
+  <%= form_tag admin_logout_path do %>
     You are logged in as <b><%= @admin.username %></b>.
     <button>Logout</button>
-  </form>
+  <% end %>
   <hr>
 <% end %>
 

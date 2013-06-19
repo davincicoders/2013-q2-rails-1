@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class Admin::RealEstateController < ApplicationController
 
   before_filter(except: ["login", "login_post", "logout"]) do
     if session[:property_admin_id] != nil
@@ -27,23 +27,23 @@ class AdminController < ApplicationController
       render :login and return
     else 
       session[:property_admin_id] = admin.id
-      redirect_to edit_all_path and return
+      redirect_to admin_real_estate_index_path and return
     end
   end
 
-  def edit_properties
+  def index
     @title = "Properties"
     @properties = Property.order("id")
-    render :edit_properties and return
+    render :index and return
   end
 
-  def edit_property
+  def edit
     @title = "Edit property"
     @property = Property.where(id: params["id"]).first
-    render :edit_property and return
+    render :edit and return
   end
 
-  def edit_property_post
+  def update
     @property = Property.where(id: params["id"]).first
     @property.address         = params["address"]
     @property.city            = params["city"]
@@ -55,18 +55,18 @@ class AdminController < ApplicationController
     @property.image_url       = params["image_url"]
 
     if @property.save
-      redirect_to edit_all_path and return
+      redirect_to admin_real_estate_index_path and return
     else
-      render :edit_property and return
+      render :edit and return
     end
   end
 
-  def add_new_property
+  def new
     @property = Property.new
-    render :add_new_property and return
+    render :new and return
   end
 
-  def create_property
+  def create
     @property = Property.new
     @property.address         = params["address"]
     @property.city            = params["city"]
@@ -78,21 +78,21 @@ class AdminController < ApplicationController
     @property.image_url       = params["image_url"]
 
     if @property.save
-      redirect_to edit_all_path and return
+      redirect_to admin_real_estate_index_path and return
     else
-      render :add_new_property and return
+      render :new and return
     end
   end
 
-  def delete_property
+  def destroy
     @property = Property.where(id: params["id"]).first
     @property.destroy
-    redirect_to edit_all_path and return
+    redirect_to admin_real_estate_index_path and return
   end
 
   def logout
     session.clear
-    redirect_to login_path and return
+    redirect_to admin_login_path and return
   end
 
 end
