@@ -4,7 +4,7 @@
   Error(s):
   <ul>
   <% for error in @user.errors.full_messages %>
-    <li><%= error %></li>
+    <li><%= error.gsub("Password digest", "Password") %></li>
   <% end %>
   </ul>
 <% end %>
