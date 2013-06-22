@@ -1,0 +1,31 @@
+<h1>Register new user</h1>
+
+<% if @user.errors.size > 0 %>
+  Error(s):
+  <ul>
+  <% for error in @user.errors.full_messages %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag users_path do %>
+  <p>
+    Email<br>
+    <%= text_field_tag :email, @user.email %>
+  </p>
+  
+  <p>
+    Password<br>
+    <%= password_field_tag :password %>
+  </p>
+  
+  <p>
+    Re-enter password<br>
+    <%= password_field_tag :password_confirmation %>
+  </p>
+  
+  <p>
+    <button name="register" value="register">Register User</button>
+  </p>
+<% end %>
