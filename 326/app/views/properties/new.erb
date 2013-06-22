@@ -7,10 +7,4 @@
   </ul>
 <% end %>
 
-<%= form_tag properties_path do %> 
-  <%= render :partial => "property_form_fields" %>
-
-  <p>
-    <button name="create" value="create">Create</button>
-  <p>
-<% end %>
+<%= render :partial => "property_form_fields" %>

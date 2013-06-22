@@ -7,12 +7,5 @@
   </ul>
 <% end %>
 
-<%= form_tag property_path(@property) do %>
-  <input type="hidden" name="_method" value="PUT">
+ <%= render :partial => "property_form_fields" %>
 
-    <%= render :partial => "property_form_fields" %>
-
-    <p>
-      <button name="update" value="update">Update</button>
-    </p>
-<% end %>
