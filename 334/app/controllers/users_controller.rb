@@ -22,24 +22,17 @@ class UsersController < ApplicationController
     @user.password                 = params[:password]
     @user.password_confirmation    = params[:password_confirmation]
     @user.email_verification_token = rand(10 ** 8)
-    begin
-      User.transaction do
-        if @user.save
-          Pony.mail(
-            to:      @user.email,
-            subject: "Thanks for registering",
-            body:    "Please click the following link to verify your email address:
-    
-    #{verify_email_url(@user.id, @user.email_verification_token)}")
-    
-          session[:logged_in_user_id] = @user.id
-          redirect_to users_path and return
-        else
-          render :new and return
-        end
-      end
-    rescue Net::SMTPAuthenticationError => e
-      flash.now[:error] = "#{e} #{e.to_s}"
+    if @user.save
+      Pony.mail(
+        to:      @user.email,
+        subject: "Thanks for registering",
+        body:    "Please click the following link to verify your email address:
+
+#{verify_email_url(@user.id, @user.email_verification_token)}")
+
+      session[:logged_in_user_id] = @user.id
+      redirect_to users_path and return
+    else
       render :new and return
     end
   end

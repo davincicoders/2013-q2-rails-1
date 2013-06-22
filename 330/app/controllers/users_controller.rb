@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     @user.password              = params[:password]
     @user.password_confirmation = params[:password_confirmation]
     if @user.save
+      session[:logged_in_user_id] = @user.id
+      flash[:success] = "Your account has been created"
       redirect_to users_path and return
     else
       render :new and return
