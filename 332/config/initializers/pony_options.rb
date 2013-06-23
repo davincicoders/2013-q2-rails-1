@@ -4,8 +4,10 @@ Pony.options = {
   via_options: {
     address:              "smtp.sendgrid.net",
     port:                 "587",
-    user_name:            "davincicoders",
-    password:             "workQuick",
+    user_name:            ENV["SMTP_USERNAME"] ||
+                          raise("Please set SMTP_USERNAME"),
+    password:             ENV["SMTP_PASSWORD"] ||
+                          raise("Please set SMTP_PASSWORD"),
     authentication:       "plain",
     enable_starttls_auto: true,
   },
