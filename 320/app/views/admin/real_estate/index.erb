@@ -12,10 +12,11 @@
       <td><%= property.address %></td>
       <td><%= property.price %></td>
       <td>
-        <%= link_to "Edit", edit_one_path(property) %>
+        <%= link_to "Edit", edit_admin_real_estate_path(property) %>
       </td>
       <td>
-        <%= form_tag delete_path(property) do %>
+        <%= form_tag admin_real_estate_path(property) do %>
+          <input type="hidden" name="_method" value="DELETE">
           <button name="delete" value="delete">Delete</button>
         <% end %>
       </td>
@@ -23,7 +24,7 @@
   <% end %>
   <tr>
     <td colspan="5">
-      <%= link_to "Add new property", add_new_path %>
+      <%= link_to "Add new property", new_admin_real_estate_path %>
     </td>
   </tr>
 </table>

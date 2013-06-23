@@ -1,19 +1,19 @@
 class RealEstateController < ApplicationController
 
   def root
-    redirect_to properties_path and return
+    redirect_to real_estate_index_path and return
   end
 
-  def view_properties
+  def index
     @title = "Welcome to our site"
     @properties = Property.order("id")
-    render :view_properties and return
+    render :index and return
   end
 
-  def view_property
+  def show
     @property = Property.where(id: params["id"]).first
     @title = "#{@property.address}, #{@property.city}, CO"
-    render :view_property and return
+    render :show and return
   end
 
 end

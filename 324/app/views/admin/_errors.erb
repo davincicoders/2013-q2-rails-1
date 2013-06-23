@@ -1,0 +1,8 @@
+<% if @property.errors.size > 0 %>
+  Errors:
+  <ul>
+  <% for error in @property.errors.full_messages %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
