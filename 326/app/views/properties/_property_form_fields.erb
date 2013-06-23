@@ -4,22 +4,27 @@
   </p>
 <% end %>
 
+<%= form_for @property do |f| %>
+
 <p>
+	
   Address
   <br>
-  <input type="text" name="address" value="<%= @property.address %>"/>
-</p>
+  <input type="text" name="price" value="<%= @property.price %>"/>
+
+  <% f.text_field :address %> 
+
 
 <p>
   Price
   <br>
-  <input type="text" name="price" value="<%= @property.price %>"/>
+  <% f.text_field :price %> 
 </p>
 
 <p>
   Bedrooms
   <br>
-  <input type="text" name="num_bedrooms" value="<%= @property.num_bedrooms %>"/>
+  <% f.text_field :bedrooms %> 
 </p>
 
 <p>
@@ -31,7 +36,7 @@
 <p>
   City
   <br>
-  <input type="text" name="city" value="<%= @property.city %>"/>
+  <% f.text_field :city %> 
 </p>
 
 <p>
@@ -51,3 +56,8 @@
   <br>
   <input type="text" name="num_square_feet" value="<%= @property.num_square_feet %>"/>
 </p>
+
+
+
+<%= f.submit %>  
+<% end %>
