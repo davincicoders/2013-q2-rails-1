@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if @logged_in_user %>
+  <form method="POST" action="<%= logout_path %>">
+    You are logged in as <b><%= @logged_in_user.email %></b>.
+    <button>Logout</button>
+  </form>
+  <hr>
+<% end %>
+
+<% for flash_type in [:error, :success] %>
+  <% if flash[flash_type] %>
+    <div class="flash flash-<%= flash_type %>">
+      <%= flash[flash_type] %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
