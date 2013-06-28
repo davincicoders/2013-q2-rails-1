@@ -1,0 +1,30 @@
+<%= form_tag users_path do %>
+  <h1>List of users</h1>
+  <table border='1'>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Facebook user ID</th>
+      <th>Facebook photo</th>
+    </tr>
+    <% for user in @users %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.facebook_user_id %></td>
+        <td>
+          <a href="http://www.facebook.com/<%= user.facebook_user_id %>">
+            <img src="<%= user.facebook_photo_url %>">
+          </a>
+        </td>
+        <td>
+          <button name="delete_user_id" value="<%= user.id %>">Delete</button>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
