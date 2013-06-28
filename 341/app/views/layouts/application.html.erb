@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if @logged_in_user %>
+  You are currently logged in as <%= @logged_in_user.first_name %>.
+  <%= form_tag logout_path, style: "display:inline-block" do %>
+    <%= button_tag "Logout" %>
+  <% end %>
+  <hr>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
